@@ -1,45 +1,97 @@
 import { Button } from "./components/ui/button";
+import { useState } from "react";
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-white p-5">
-      <nav className="flex justify-between items-center">
-        <div className="flex items-center space-x-6">
-          <a className="text-2xl font-bold" href="#">
-            <img
-              alt="Logo"
-              className="h-10"
-              height="80"
-              src="/placeholder.svg"
-              style={{
-                aspectRatio: "40/40",
-                objectFit: "cover",
-              }}
-              width="80"
-            />
-          </a>
-          <a className="text-gray-700 text-lg" href="#">
-            질병정보
-          </a>
-          <a className="text-gray-700 text-lg" href="#">
-            도구 및 API
-          </a>
-          <a className="text-gray-700 text-lg" href="#">
-            구독
-          </a>
-        </div>
-        <div className="flex space-x-2">
-          <Button className="bg-blue-500 text-white px-6 py-3 text-lg">
-            로그인
-          </Button>
-          <Button className="bg-gray-300 text-gray-700 px-6 py-3 text-lg">
-            회원가입
-          </Button>
-        </div>
-      </nav>
-      <div className="flex flex-col items-center justify-center mt-10">
-        <div className="flex">
-          <div className="flex flex-col flex-grow">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-screen-lg mx-auto px-4">
+        <nav className="flex justify-between items-center py-4">
+          <div className="flex items-center space-x-6">
+            <a className="text-2xl font-bold" href="#">
+              <img
+                alt="Logo"
+                className="h-10"
+                height="80"
+                src="/placeholder.svg"
+                style={{
+                  aspectRatio: "40/40",
+                  objectFit: "cover",
+                }}
+                width="80"
+              />
+            </a>
+            <div className="hidden md:flex space-x-6">
+              <a className="text-gray-700 px-3 py-3 text-xl" href="#">
+                질병정보
+              </a>
+              <a className="text-gray-700 px-3 py-3 text-xl" href="#">
+                도구 및 API
+              </a>
+              <a className="text-gray-700 px-3 py-3 text-xl" href="#">
+                구독
+              </a>
+            </div>
+          </div>
+          <div className="hidden md:flex space-x-2">
+            <Button className="bg-blue-500 text-white px-6 py-3 text-lg">
+              로그인
+            </Button>
+            <Button className="bg-gray-300 text-gray-700 px-6 py-3 text-lg">
+              회원가입
+            </Button>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-500 hover:text-gray-600 focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6 fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isOpen ? (
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M19.293 4.293a1 1 0 011.414 0l.707.707a1 1 0 010 1.414L13.414 14l8 8a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 00-1.414 0L12 17.414l-5.879 5.879a1 1 0 01-1.414-1.414l8-8-8-8a1 1 0 011.414-1.414l5.879 5.879 5.879-5.879z"
+                  />
+                ) : (
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </nav>
+        {isOpen && (
+          <div className="md:hidden">
+            <a className="block py-2 px-4 text-gray-700 text-xl" href="#">
+              질병정보
+            </a>
+            <a className="block py-2 px-4 text-gray-700 text-xl" href="#">
+              도구 및 API
+            </a>
+            <a className="block py-2 px-4 text-gray-700 text-xl" href="#">
+              구독
+            </a>
+            <div className="py-4 px-4">
+              <Button className="bg-blue-500 text-white px-6 py-3 text-lg w-full mb-2">
+                로그인
+              </Button>
+              <Button className="bg-gray-300 text-gray-700 px-6 py-3 text-lg w-full">
+                회원가입
+              </Button>
+            </div>
+          </div>
+        )}
+        <div className="flex flex-col md:flex-row mt-10">
+          <div className="md:w-1/2 md:pr-8">
             <h1 className="text-4xl font-bold mb-4">
               생선의 상태를 분석하세요
             </h1>
@@ -55,7 +107,7 @@ export default function App() {
               있습니다.
             </p>
           </div>
-          <div className="w-96 ml-8">
+          <div className="md:w-1/2">
             <label
               className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-gray-400"
               htmlFor="file-upload"
