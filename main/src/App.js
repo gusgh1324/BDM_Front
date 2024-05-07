@@ -1,5 +1,6 @@
 import { Button } from "./components/ui/button";
 import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,25 +48,11 @@ export default function App() {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-500 hover:text-gray-600 focus:outline-none"
             >
-              <svg
-                className="h-6 w-6 fill-current"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {isOpen ? (
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M19.293 4.293a1 1 0 011.414 0l.707.707a1 1 0 010 1.414L13.414 14l8 8a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 00-1.414 0L12 17.414l-5.879 5.879a1 1 0 01-1.414-1.414l8-8-8-8a1 1 0 011.414-1.414l5.879 5.879 5.879-5.879z"
-                  />
-                ) : (
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
-                  />
-                )}
-              </svg>
+              {isOpen ? (
+                <XMarkIcon className="h-6 w-6" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" />
+              )}
             </button>
           </div>
         </nav>
