@@ -16,7 +16,7 @@
   }
 
   .nav-links {
-    @apply hidden md:flex space-x-6;
+    @apply hidden lg:flex space-x-6;
   }
 
   .nav-link {
@@ -24,7 +24,7 @@
   }
 
   .button-container {
-    @apply hidden md:flex space-x-2;
+    @apply hidden lg:flex space-x-2;
   }
 
   .login-button {
