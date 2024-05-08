@@ -5,7 +5,7 @@ import RegisterIcon from "../icon/RegisterIcon";
 import { GoogleIcon } from "../icon/SocialIcons";
 import "./LoginLayout.css";
 
-const LoginLayout = () => {
+const LoginLayout = ({ handleLogin }) => {
   return (
     <div className="login-page">
       <div className="login-box">
@@ -20,7 +20,7 @@ const LoginLayout = () => {
         <div className="login-divider">
           <span className="login-divider-text">or</span>
         </div>
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleLogin}>
           <div className="login-form-fields">
             <label htmlFor="email" className="login-form-label">
               <p className="login-form-label-text">이메일 주소</p>
@@ -52,7 +52,7 @@ const LoginLayout = () => {
                     id="remember"
                     className="login-form-remember-checkbox"
                   />
-                  로그인 유지
+                  <span>로그인 유지</span>
                 </label>
               </div>
               <div>
