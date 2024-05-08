@@ -36,8 +36,8 @@ const Header = () => {
           <Button className="login-button">
             <Link to={"/login"}>로그인</Link>
           </Button>
-          <Button className="signup-button">
-            <Link to={"/signup"}>회원가입</Link>
+          <Button className="register-button">
+            <Link to={"/register"}>회원가입</Link>
           </Button>
         </div>
         <div className="lg:hidden">
@@ -72,8 +72,8 @@ const Header = () => {
               <Button className="mobile-login-button">
                 <Link to={"/login"}>로그인</Link>
               </Button>
-              <Button className="mobile-signup-button">
-                <Link to={"/signup"}>회원가입</Link>
+              <Button className="mobile-register-button">
+                <Link to={"/register"}>회원가입</Link>
               </Button>
             </div>
           </div>

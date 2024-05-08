@@ -31,7 +31,7 @@
     @apply bg-blue-500 text-white px-6 py-3 text-lg;
   }
 
-  .signup-button {
+  .register-button {
     @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg;
   }
 
@@ -39,7 +39,7 @@
     @apply bg-blue-500 text-white px-6 py-3 text-lg w-full mb-2;
   }
 
-  .mobile-signup-button {
+  .mobile-register-button {
     @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg w-full;
   }
 }
