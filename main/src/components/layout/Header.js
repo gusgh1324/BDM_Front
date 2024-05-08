@@ -12,7 +12,7 @@ const Header = () => {
       <nav className="nav-container">
         <div className="logo-container">
           <Link to={"/"}>
-            <img alt="Logo" className="h-32" src="/logo512.png" />
+            <img alt="Logo" className="h-32 text-2xl font-bold" src="/logo512.png" />
           </Link>
           <div className="nav-links">
             <div className="nav-link">
@@ -38,9 +38,9 @@ const Header = () => {
             className="focus:outline-none"
           >
             {isOpen ? (
-              <XMarkIcon className="w-6 h-6" />
+              <XMarkIcon className="w-10 h-10" />
             ) : (
-              <Bars3Icon className="w-6 h-6" />
+              <Bars3Icon className="w-10 h-10" />
             )}
           </button>
         </div>
