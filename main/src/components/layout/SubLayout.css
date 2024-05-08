@@ -1,14 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-.sub-container {
-  @apply min-h-screen bg-white;
-}
-
-.sub-wrapper {
-  @apply max-w-screen-lg px-4 mx-auto;
-}
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 .sub-content {
   @apply bg-white py-24;
