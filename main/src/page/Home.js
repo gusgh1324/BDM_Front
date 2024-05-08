@@ -11,7 +11,6 @@ const Home = () => {
 
     const handleDragEnter = (e) => {
       e.preventDefault();
-      e.stopPropagation();
       dragCount++;
       if (dragCount === 1) {
         setIsDragging(true);
@@ -20,7 +19,6 @@ const Home = () => {
 
     const handleDragLeave = (e) => {
       e.preventDefault();
-      e.stopPropagation();
       dragCount--;
       if (dragCount === 0) {
         setIsDragging(false);
@@ -29,17 +27,13 @@ const Home = () => {
 
     const handleDragOver = (e) => {
       e.preventDefault();
-      e.stopPropagation();
     };
 
     const handleDrop = (e) => {
       e.preventDefault();
-      e.stopPropagation();
       dragCount = 0;
       setIsDragging(false);
-
-      const files = e.dataTransfer.files;
-      // 드롭된 파일 처리 로직 추가
+      const files = e.dataTransfer.files; //파일 처리 로직 구현
       console.log(files);
     };
 

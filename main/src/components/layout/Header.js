@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "../ui/button";
 import "./Header.css";
 
-const Header = () => {
+const Header = React.memo(() => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -81,6 +81,6 @@ const Header = () => {
       </section>
     </div>
   );
-};
+});
 
 export default Header;
