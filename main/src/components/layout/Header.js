@@ -12,7 +12,11 @@ const Header = () => {
       <nav className="nav-container">
         <div className="logo-container">
           <Link to={"/"}>
-            <img alt="Logo" className="h-32 text-2xl font-bold" src="/logo512.png" />
+            <img
+              alt="Logo"
+              className="h-32 text-2xl font-bold"
+              src="/logo512.png"
+            />
           </Link>
           <div className="nav-links">
             <div className="nav-link">
@@ -29,8 +33,12 @@ const Header = () => {
           </div>
         </div>
         <div className="button-container">
-          <Button className="login-button">로그인</Button>
-          <Button className="signup-button">회원가입</Button>
+          <Button className="login-button">
+            <Link to={"/login"}>로그인</Link>
+          </Button>
+          <Button className="signup-button">
+            <Link to={"/signup"}>회원가입</Link>
+          </Button>
         </div>
         <div className="lg:hidden">
           <button
@@ -61,8 +69,12 @@ const Header = () => {
             </div>
 
             <div className="px-4 py-4">
-              <Button className="mobile-login-button">로그인</Button>
-              <Button className="mobile-signup-button">회원가입</Button>
+              <Button className="mobile-login-button">
+                <Link to={"/login"}>로그인</Link>
+              </Button>
+              <Button className="mobile-signup-button">
+                <Link to={"/signup"}>회원가입</Link>
+              </Button>
             </div>
           </div>
         )}

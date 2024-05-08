@@ -1,0 +1,101 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.login-page {
+  @apply antialiased bg-slate-200 min-h-screen flex items-center justify-center;
+}
+
+.login-box {
+  @apply max-w-lg mx-auto bg-white p-8 rounded-xl shadow shadow-slate-300;
+}
+
+.login-title {
+  @apply text-4xl font-medium;
+}
+
+.login-subtitle {
+  @apply text-slate-500;
+}
+
+.login-social-button-container {
+  @apply my-5;
+}
+
+.login-social-button {
+  @apply w-full text-center py-3 my-3 border flex space-x-2 items-center justify-center border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150;
+}
+
+.login-social-icon {
+  @apply w-6 h-6;
+}
+
+.login-form {
+  @apply my-10;
+}
+
+.login-form-fields {
+  @apply flex flex-col space-y-5;
+}
+
+.login-form-label {
+  @apply font-medium text-slate-700 pb-2;
+}
+
+.login-form-label-text {
+  @apply font-medium text-slate-700 pb-2;
+}
+
+.login-form-input {
+  @apply w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow;
+}
+
+.login-form-options {
+  @apply flex flex-row justify-between;
+}
+
+.login-form-remember {
+  @apply flex items-center space-x-2;
+}
+
+.login-form-remember-checkbox {
+  @apply w-4 h-4 border-slate-200 focus:bg-indigo-600;
+}
+
+.login-form-forgot-password {
+  @apply font-medium text-indigo-600;
+}
+
+.login-form-submit-button {
+  @apply w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center;
+}
+
+.login-form-submit-icon {
+  @apply h-6 w-6;
+}
+
+.login-form-register-link {
+  @apply text-center;
+}
+
+.login-form-register-link-text {
+  @apply text-indigo-600 font-medium inline-flex space-x-1 items-center;
+}
+
+.login-form-register-icon {
+  @apply h-4 w-4;
+}
+
+.login-divider {
+  @apply my-6 flex items-center;
+}
+
+.login-divider-text {
+  @apply mx-4 text-slate-400 font-medium;
+}
+
+.login-divider:before,
+.login-divider:after {
+  content: "";
+  @apply flex-1 h-px bg-slate-200;
+}
