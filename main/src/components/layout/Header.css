@@ -1,45 +1,49 @@
+.nav-link:hover {
+  cursor: pointer;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-    .nav-container {
-      @apply flex justify-between items-center py-4;
-    }
-  
-    .logo-container {
-      @apply flex items-center space-x-6;
-    }
-  
-    .nav-links {
-      @apply hidden md:flex space-x-6;
-    }
-  
-    .nav-link {
-      @apply text-gray-500 px-3 py-3 text-2xl font-bold;
-    }
-  
-    .button-container {
-      @apply hidden md:flex space-x-2;
-    }
-  
-    .login-button {
-      @apply bg-blue-500 text-white px-6 py-3 text-lg;
-    }
-  
-    .signup-button {
-      @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg;
-    }
-  
-    .mobile-nav-link {
-      @apply block py-2 px-4 text-gray-700 text-xl;
-    }
-  
-    .mobile-login-button {
-      @apply bg-blue-500 text-white px-6 py-3 text-lg w-full mb-2;
-    }
-  
-    .mobile-signup-button {
-      @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg w-full;
-    }
+  .nav-container {
+    @apply flex justify-between items-center py-4;
   }
+
+  .logo-container {
+    @apply flex items-center space-x-6;
+  }
+
+  .nav-links {
+    @apply hidden md:flex space-x-6;
+  }
+
+  .nav-link {
+    @apply text-gray-500 px-3 py-3 text-2xl font-bold;
+  }
+
+  .button-container {
+    @apply hidden md:flex space-x-2;
+  }
+
+  .login-button {
+    @apply bg-blue-500 text-white px-6 py-3 text-lg;
+  }
+
+  .signup-button {
+    @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg;
+  }
+
+  .mobile-nav-link {
+    @apply block py-2 px-4 text-gray-700 text-xl;
+  }
+
+  .mobile-login-button {
+    @apply bg-blue-500 text-white px-6 py-3 text-lg w-full mb-2;
+  }
+
+  .mobile-signup-button {
+    @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg w-full;
+  }
+}
