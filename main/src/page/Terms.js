@@ -4,7 +4,7 @@ import TermsInfo from "../components/layout/TermsInfo";
 
 const Terms = () => {
   return (
-    <div className="page-container-hasscroll">
+    <div className="page-container">
       <div className="content-container">
         <Header />
         <TermsInfo />
