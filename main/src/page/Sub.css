@@ -91,7 +91,7 @@
 }
 
 .sub-plan-recommended {
-  @apply transform scale-105;
+  @apply transform lg:scale-105;
 }
 
 .sub-plan-recommended .sub-plan-content {
