@@ -1,101 +1,96 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.login-page {
-  @apply antialiased bg-slate-200 min-h-screen flex items-center justify-center;
+.page {
+  @apply antialiased bg-slate-200 min-h-screen py-40;
 }
 
-.login-box {
-  @apply max-w-lg mx-auto bg-white p-8 rounded-xl shadow shadow-slate-300;
+.box {
+  @apply max-w-md mx-auto bg-white p-8 rounded-xl shadow shadow-slate-300;
 }
-
-.login-title {
+.title {
   @apply text-4xl font-medium;
 }
 
-.login-subtitle {
+.subtitle {
   @apply text-slate-500;
 }
 
-.login-social-button-container {
+.social-button-container {
   @apply my-5;
 }
 
-.login-social-button {
+.social-button {
   @apply w-full text-center py-3 my-3 border flex space-x-2 items-center justify-center border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150;
 }
 
-.login-social-icon {
+.social-icon {
   @apply w-6 h-6;
 }
 
-.login-form {
+.form {
   @apply my-10;
 }
 
-.login-form-fields {
+.form-fields {
   @apply flex flex-col space-y-5;
 }
 
-.login-form-label {
+.form-label {
   @apply font-medium text-slate-700 pb-2;
 }
 
-.login-form-label-text {
+.form-label-text {
   @apply font-medium text-slate-700 pb-2;
 }
 
-.login-form-input {
+.form-input {
   @apply w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow;
 }
 
-.login-form-options {
+.form-options {
   @apply flex flex-row justify-between;
 }
 
-.login-form-remember {
+.form-remember {
   @apply flex items-center space-x-2;
 }
 
-.login-form-remember-checkbox {
+.form-remember-checkbox {
   @apply w-4 h-4 border-slate-200 focus:bg-indigo-600;
 }
 
-.login-form-forgot-password {
-  @apply font-medium text-indigo-600;
-}
-
-.login-form-submit-button {
+.form-submit-button {
   @apply w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center;
 }
 
-.login-form-submit-icon {
+.form-submit-icon {
   @apply h-6 w-6;
 }
 
-.login-form-register-link {
+.form-link {
   @apply text-center;
 }
 
-.login-form-register-link-text {
+.form-link-text {
   @apply text-indigo-600 font-medium inline-flex space-x-1 items-center;
 }
 
-.login-form-register-icon {
+.form-link-icon {
   @apply h-4 w-4;
 }
 
-.login-divider {
+.divider {
   @apply my-6 flex items-center;
 }
 
-.login-divider-text {
+.divider-text {
   @apply mx-4 text-slate-400 font-medium;
 }
 
-.login-divider:before,
-.login-divider:after {
+.divider:before,
+.divider:after {
   content: "";
   @apply flex-1 h-px bg-slate-200;
 }

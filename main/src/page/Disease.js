@@ -30,8 +30,8 @@ const Disease = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-screen-lg px-4 mx-auto">
+    <div className="page-container">
+      <div className="content-container">
         <Header />
         <div className="list">
           {diseaseInfo.map((info, index) => (

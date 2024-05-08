@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.page-container {
+  @apply min-h-screen bg-white pr-4;
+}
+
+.page-container-hasscroll {
+  @apply min-h-screen bg-white;
+}
+
+.content-container {
+  @apply max-w-screen-lg mx-auto px-4;
+}

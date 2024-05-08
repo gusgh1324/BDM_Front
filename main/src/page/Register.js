@@ -1,9 +1,17 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import RegisterLayout from "../components/layout/RegisterLayout";
+
 const Register = () => {
-  return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-screen-lg px-4 mx-auto">Register</div>
-    </div>
-  );
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    // 회원가입 로직 구현
+    navigate("/login"); // 회원가입 성공 시 로그인 페이지로 이동
+  };
+
+  return <RegisterLayout handleRegister={handleRegister} />;
 };
 
 export default Register;

@@ -7,6 +7,7 @@ import Api from "./page/Api";
 import LogIn from "./page/Login";
 import Register from "./page/Register";
 import ForgotPassword from "./page/ForgotPassword";
+import Terms from "./page/Terms";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/login" element={<LogIn />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/forgot-password" element={<ForgotPassword />} />
+        <Route exact path="/terms" element={<Terms />} />
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
     </Router>

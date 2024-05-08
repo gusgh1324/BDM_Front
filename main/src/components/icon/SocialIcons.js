@@ -29,3 +29,23 @@ export const TwitterIcon = (props) => {
     ></img>
   );
 };
+
+export const KakaotalkIcon = (props) => {
+  return (
+    <img
+      {...props}
+      src="https://www.svgrepo.com/show/303176/kakaotalk-logo.svg"
+      alt="KakaotalkIcon"
+    ></img>
+  );
+};
+
+export const LinkShareIcon = (props) => {
+  return (
+    <img
+      {...props}
+      src="https://www.svgrepo.com/show/528356/link.svg"
+      alt="LinkShareIcon"
+    ></img>
+  );
+};

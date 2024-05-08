@@ -5,12 +5,12 @@ import RegisterIcon from "../icon/RegisterIcon";
 import { GoogleIcon } from "../icon/SocialIcons";
 import "./MembersLayout.css";
 
-const LoginLayout = ({ handleLogin }) => {
+const RegisterLayout = ({ handleRegister }) => {
   return (
     <div className="page">
       <div className="box">
-        <h1 className="title">로그인</h1>
-        <p className="subtitle">반갑습니다 👋</p>
+        <h1 className="title">회원가입</h1>
+        <p className="subtitle">환영합니다! 🎉</p>
         <div className="social-button-container">
           <button className="social-button">
             <GoogleIcon className="social-icon" />
@@ -20,7 +20,7 @@ const LoginLayout = ({ handleLogin }) => {
         <div className="divider">
           <span className="divider-text">or</span>
         </div>
-        <form className="form" onSubmit={handleLogin}>
+        <form className="form" onSubmit={handleRegister}>
           <div className="form-fields">
             <label htmlFor="email" className="form-label">
               <p className="form-label-text">이메일 주소</p>
@@ -32,7 +32,6 @@ const LoginLayout = ({ handleLogin }) => {
                 placeholder="이메일 주소를 입력하세요"
               />
             </label>
-
             <label htmlFor="password" className="form-label">
               <p className="form-label-text">비밀번호</p>
               <input
@@ -52,27 +51,27 @@ const LoginLayout = ({ handleLogin }) => {
                     id="remember"
                     className="form-remember-checkbox"
                   />
-                  <span>로그인 유지</span>
+                  <span>약관 동의</span>
                 </label>
               </div>
               <div>
-                <Link to="/forgot-password" className="form-link-text">
-                  비밀번호 찾기
+                <Link to="/terms" className="form-link-text">
+                  약관 상세보기
                 </Link>
               </div>
             </div>
 
             <button type="submit" className="form-submit-button">
-              <LoginIcon className="form-submit-icon" />
-              <span>로그인</span>
+              <RegisterIcon className="form-submit-icon" />
+              <span>회원가입</span>
             </button>
 
             <p className="form-link">
-              아직 회원이 아니신가요?{" "}
-              <Link to="/register" className="form-link-text">
-                <span>회원가입 </span>
+              이미 회원이신가요?{" "}
+              <Link to="/login" className="form-link-text">
+                <span>로그인 </span>
                 <span>
-                  <RegisterIcon className="form-link-icon" />
+                  <LoginIcon className="form-link-icon" />
                 </span>
               </Link>
             </p>
@@ -83,4 +82,4 @@ const LoginLayout = ({ handleLogin }) => {
   );
 };
 
-export default LoginLayout;
+export default RegisterLayout;

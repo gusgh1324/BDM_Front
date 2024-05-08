@@ -4,6 +4,7 @@ import Footer from "../components/layout/Footer";
 import SubLayout from "../components/layout/SubLayout";
 
 const Sub = () => {
+  // eslint-disable-next-line
   const [plans, setPlans] = useState([
     {
       name: "프리 회원",
@@ -30,8 +31,8 @@ const Sub = () => {
   ]);
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-screen-lg px-4 mx-auto">
+    <div className="page-container">
+      <div className="content-container">
         <Header />
         <SubLayout plans={plans} />
         <Footer />

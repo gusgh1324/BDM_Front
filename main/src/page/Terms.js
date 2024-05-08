@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import TermsInfo from "../components/layout/TermsInfo";
 
-const Api = () => {
+const Terms = () => {
   return (
-    <div className="page-container">
+    <div className="page-container-hasscroll">
       <div className="content-container">
         <Header />
-        API 정보입니다....
+        <TermsInfo />
         <Footer />
       </div>
     </div>
   );
 };
 
-export default Api;
+export default Terms;

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
-
 
 const Home = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -58,18 +57,18 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-screen-lg mx-auto px-4">
+    <div className="page-container">
+      <div className="content-container">
         <Header />
         <Main />
         <Footer />
       </div>
       {isDragging && (
         <div className="fixed inset-0 bg-blue-500 bg-opacity-50 z-50 flex items-center justify-center">
-        <p className="text-4xl font-bold text-purple-600 drop-shadow-[0_3px_3px_rgba(255,255,255,1.0)]">
-          아무 곳에나 이미지를 놓으세요
-        </p>
-      </div>
+          <p className="text-4xl font-bold text-purple-600 drop-shadow-[0_3px_3px_rgba(255,255,255,1.0)]">
+            아무 곳에나 이미지를 놓으세요
+          </p>
+        </div>
       )}
     </div>
   );
