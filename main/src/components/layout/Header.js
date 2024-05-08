@@ -32,7 +32,7 @@ const Header = () => {
           <Button className="login-button">로그인</Button>
           <Button className="signup-button">회원가입</Button>
         </div>
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="focus:outline-none"
@@ -47,7 +47,7 @@ const Header = () => {
       </nav>
       <section className="mobile">
         {isOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="nav-link">
               <Link to={"/disease"}>질병정보</Link>
             </div>
