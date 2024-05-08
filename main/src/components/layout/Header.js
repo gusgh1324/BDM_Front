@@ -20,11 +20,11 @@ const Header = () => {
             </div>
 
             <div className="nav-link">
-              <Link to={"/"}>도구 및 API</Link>
+              <Link to={"/api"}>도구 및 API</Link>
             </div>
 
             <div className="nav-link">
-              <Link to={"/"}>구독</Link>
+              <Link to={"/sub"}>구독</Link>
             </div>
           </div>
         </div>
@@ -53,11 +53,11 @@ const Header = () => {
             </div>
 
             <div className="nav-link">
-              <Link to={"/"}>도구 및 API</Link>
+              <Link to={"/api"}>도구 및 API</Link>
             </div>
 
             <div className="nav-link">
-              <Link to={"/"}>구독</Link>
+              <Link to={"/sub"}>구독</Link>
             </div>
 
             <div className="px-4 py-4">
