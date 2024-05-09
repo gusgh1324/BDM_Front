@@ -8,7 +8,7 @@ interface ListItemProps {
   description: string;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ title, description }) => {
+const ListItem = ({ title, description } : ListItemProps) => {
  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
  return (
