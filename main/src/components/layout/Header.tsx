@@ -28,6 +28,9 @@ const Header = memo(() => {
             <div className="nav-link">
               <Link to={"/sub"}>구독</Link>
             </div>
+            <div className="nav-link">
+              <Link to={"/map"}>지도</Link>
+            </div>
           </div>
         </div>
         <div className="button-container">

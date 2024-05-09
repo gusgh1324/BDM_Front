@@ -8,6 +8,7 @@ import LogIn from "./page/Login";
 import Register from "./page/Register";
 import ForgotPassword from "./page/ForgotPassword";
 import Terms from "./page/Terms";
+import Map from "./page/Map";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/map" element={<Map />} />
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
     </Router>
