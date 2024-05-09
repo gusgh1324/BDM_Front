@@ -33,12 +33,12 @@ const Header = React.memo(() => {
           </div>
         </div>
         <div className="button-container">
-          <Button className="login-button">
-            <Link to={"/login"}>로그인</Link>
-          </Button>
-          <Button className="register-button">
-            <Link to={"/register"}>회원가입</Link>
-          </Button>
+          <Link to={"/login"}>
+            <Button className="mobile-login-button">로그인</Button>
+          </Link>
+          <Link to={"/register"}>
+            <Button className="mobile-register-button">회원가입</Button>
+          </Link>
         </div>
         <div className="lg:hidden">
           <button
@@ -69,12 +69,12 @@ const Header = React.memo(() => {
             </div>
 
             <div className="px-4 py-4">
-              <Button className="mobile-login-button">
-                <Link to={"/login"}>로그인</Link>
-              </Button>
-              <Button className="mobile-register-button">
-                <Link to={"/register"}>회원가입</Link>
-              </Button>
+              <Link to={"/login"}>
+                <Button className="mobile-login-button">로그인</Button>
+              </Link>
+              <Link to={"/register"}>
+                <Button className="mobile-register-button">회원가입</Button>
+              </Link>
             </div>
           </div>
         )}
