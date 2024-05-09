@@ -51,7 +51,7 @@ const RegisterLayout = ({ handleRegister }) => {
                     id="remember"
                     className="form-remember-checkbox"
                   />
-                  <span>약관 동의</span>
+                  <span>전체 약관 동의</span>
                 </label>
               </div>
               <div>
