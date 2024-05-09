@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginIcon from "../icon/LoginIcon";
-import RegisterIcon from "../icon/RegisterIcon";
+import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
 import { GoogleIcon } from "../icon/SocialIcons";
 import "./MembersLayout.css";
 
@@ -76,6 +75,14 @@ const RegisterLayout = ({ handleRegister }: RegisterLayoutProps) => {
                 <span>로그인 </span>
                 <span>
                   <LoginIcon className="form-link-icon" />
+                </span>
+              </Link>
+            </p>
+            <p className="form-link">
+              <Link to="/" className="form-link-text">
+                <span>홈으로</span>
+                <span>
+                  <HomeIcon className="form-link-icon" />
                 </span>
               </Link>
             </p>
