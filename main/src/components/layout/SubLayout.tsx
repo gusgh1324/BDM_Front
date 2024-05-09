@@ -9,13 +9,13 @@ interface Plan {
   frequency: string;
   features: string[];
   recommended?: boolean;
- }
- 
- interface SubLayoutProps {
-  plans: Plan[];
- }
+}
 
-const SubLayout = ({ plans } : SubLayoutProps) => {
+interface SubLayoutProps {
+  plans: Plan[];
+}
+
+const SubLayout = ({ plans }: SubLayoutProps) => {
   return (
     <div className="sub-content">
       <div className="sub-heading">

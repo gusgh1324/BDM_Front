@@ -7,9 +7,9 @@ import "./MembersLayout.css";
 
 interface RegisterLayoutProps {
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
- }
+}
 
-const RegisterLayout = ({ handleRegister } : RegisterLayoutProps) => {
+const RegisterLayout = ({ handleRegister }: RegisterLayoutProps) => {
   return (
     <div className="page">
       <div className="box">

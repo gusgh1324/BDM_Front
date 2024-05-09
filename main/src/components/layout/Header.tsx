@@ -12,7 +12,11 @@ const Header = memo(() => {
       <nav className="nav-container">
         <div className="logo-container">
           <Link to={"/"}>
-            <img alt="Logo" className="h-32 text-2xl font-bold" src="/logo512.png" />
+            <img
+              alt="Logo"
+              className="h-32 text-2xl font-bold"
+              src="/logo512.png"
+            />
           </Link>
           <div className="nav-links">
             <div className="nav-link">
