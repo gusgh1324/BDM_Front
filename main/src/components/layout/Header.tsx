@@ -12,18 +12,22 @@ const Header = memo(() => {
       <nav className="nav-container">
         <div className="logo-container">
           <Link to={"/"}>
-            <img alt="Logo" className="h-32 text-2xl font-bold" src="/logo512.png" />
+            <img
+              alt="Logo"
+              className="h-32 text-2xl font-bold"
+              src="/logo512.png"
+            />
           </Link>
           <div className="nav-links">
-            <div className="nav-link">
-              <Link to={"/disease"}>질병정보</Link>
-            </div>
-            <div className="nav-link">
-              <Link to={"/api"}>도구 및 API</Link>
-            </div>
-            <div className="nav-link">
-              <Link to={"/sub"}>구독</Link>
-            </div>
+            <Link to={"/disease"}>
+              <div className="nav-link">질병정보</div>
+            </Link>
+            <Link to={"/api"}>
+              <div className="nav-link">도구 및 API</div>
+            </Link>
+            <Link to={"/sub"}>
+              <div className="nav-link">구독</div>
+            </Link>
           </div>
         </div>
         <div className="button-container">
@@ -50,15 +54,15 @@ const Header = memo(() => {
       <section className="mobile">
         {isOpen && (
           <div className="lg:hidden">
-            <div className="nav-link">
-              <Link to={"/disease"}>질병정보</Link>
-            </div>
-            <div className="nav-link">
-              <Link to={"/api"}>도구 및 API</Link>
-            </div>
-            <div className="nav-link">
-              <Link to={"/sub"}>구독</Link>
-            </div>
+            <Link to={"/disease"}>
+              <div className="nav-link">질병정보</div>
+            </Link>
+            <Link to={"/api"}>
+              <div className="nav-link">도구 및 API</div>
+            </Link>
+            <Link to={"/sub"}>
+              <div className="nav-link">구독</div>
+            </Link>
             <div className="px-4 py-4">
               <Link to={"/login"}>
                 <Button className="mobile-login-button">로그인</Button>

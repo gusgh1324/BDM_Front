@@ -2,7 +2,7 @@ import React from "react";
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {}
 
-const LoginIcon = (props : IconProps) => {
+const LoginIcon = (props: IconProps) => {
   return (
     <svg
       {...props}
