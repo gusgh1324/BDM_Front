@@ -1,6 +1,8 @@
 import React from "react";
 
-const CloudUploadIcon = (props) => {
+interface IconProps extends React.SVGProps<SVGSVGElement> {}
+
+const CloudUploadIcon = (props: IconProps) => {
   return (
     <svg
       {...props}

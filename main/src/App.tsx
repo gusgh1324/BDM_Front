@@ -13,14 +13,14 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/disease" element={<Disease />} />
-        <Route exact path="/api" element={<Api />} />
-        <Route exact path="/sub" element={<Sub />} />
-        <Route exact path="/login" element={<LogIn />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/forgot-password" element={<ForgotPassword />} />
-        <Route exact path="/terms" element={<Terms />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/disease" element={<Disease />} />
+        <Route path="/api" element={<Api />} />
+        <Route path="/sub" element={<Sub />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/terms" element={<Terms />} />
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
     </Router>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Button } from "../ui/button";
 import "./Header.css";
 
-const Header = React.memo(() => {
+const Header = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,21 +12,15 @@ const Header = React.memo(() => {
       <nav className="nav-container">
         <div className="logo-container">
           <Link to={"/"}>
-            <img
-              alt="Logo"
-              className="h-32 text-2xl font-bold"
-              src="/logo512.png"
-            />
+            <img alt="Logo" className="h-32 text-2xl font-bold" src="/logo512.png" />
           </Link>
           <div className="nav-links">
             <div className="nav-link">
               <Link to={"/disease"}>질병정보</Link>
             </div>
-
             <div className="nav-link">
               <Link to={"/api"}>도구 및 API</Link>
             </div>
-
             <div className="nav-link">
               <Link to={"/sub"}>구독</Link>
             </div>
@@ -59,15 +53,12 @@ const Header = React.memo(() => {
             <div className="nav-link">
               <Link to={"/disease"}>질병정보</Link>
             </div>
-
             <div className="nav-link">
               <Link to={"/api"}>도구 및 API</Link>
             </div>
-
             <div className="nav-link">
               <Link to={"/sub"}>구독</Link>
             </div>
-
             <div className="px-4 py-4">
               <Link to={"/login"}>
                 <Button className="mobile-login-button">로그인</Button>

@@ -1,6 +1,8 @@
 import React from "react";
 
-const RegisterIcon = (props) => {
+interface IconProps extends React.SVGProps<SVGSVGElement> {}
+
+const RegisterIcon = (props: IconProps) => {
   return (
     <svg
       {...props}
