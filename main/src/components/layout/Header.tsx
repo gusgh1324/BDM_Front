@@ -66,6 +66,9 @@ const Header = memo(() => {
             <div className="nav-link">
               <Link to={"/sub"}>구독</Link>
             </div>
+            <div className="nav-link">
+              <Link to={"/map"}>지도</Link>
+            </div>
             <div className="px-4 py-4">
               <Link to={"/login"}>
                 <Button className="mobile-login-button">로그인</Button>
