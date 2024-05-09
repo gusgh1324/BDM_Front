@@ -5,7 +5,6 @@ import Main from "../components/layout/Main";
 
 const Home = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
-
   useEffect(() => {
     let dragCount = 0;
 
@@ -33,9 +32,9 @@ const Home = () => {
       e.preventDefault();
       dragCount = 0;
       setIsDragging(false);
-      //const files = e.dataTransfer.files;
-      //파일 처리 로직 구현
-      //console.log(files);
+      const files = Array.from(e.dataTransfer?.files || []);
+      // 파일 처리 로직 구현
+      console.log(files);
     };
 
     window.addEventListener("dragenter", handleDragEnter);
