@@ -4,7 +4,7 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <div className="flex flex-col md:flex-row mt-10">
+    <div className="flex flex-col mt-10 md:flex-row">
       <div className="md:w-1/2 md:pr-16">
         <h1 className="main-title">
           생선의 상태를 <br /> 분석하세요
@@ -19,7 +19,7 @@ const Main = () => {
           업로드하는 것만으로도 내부적인 질병까지 정확하게 진단받을 수 있습니다.
         </p>
       </div>
-      <div className="md:w-1/2 mt-8">
+      <div className="mt-8 md:w-1/2">
         <label className="upload-label" htmlFor="file-upload">
           <div className="upload-content">
             <CloudUploadIcon className="upload-icon" />

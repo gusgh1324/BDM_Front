@@ -19,6 +19,7 @@ const Header = memo(() => {
             />
           </Link>
           <div className="nav-links">
+<<<<<<< HEAD
             <Link to={"/disease"}>
               <div className="nav-link">질병정보</div>
             </Link>
@@ -28,6 +29,20 @@ const Header = memo(() => {
             <Link to={"/sub"}>
               <div className="nav-link">구독</div>
             </Link>
+=======
+            <div className="nav-link">
+              <Link to={"/disease"}>질병정보</Link>
+            </div>
+            <div className="nav-link">
+              <Link to={"/api"}>도구 및 API</Link>
+            </div>
+            <div className="nav-link">
+              <Link to={"/sub"}>구독</Link>
+            </div>
+            <div className="nav-link">
+              <Link to={"/map"}>지도</Link>
+            </div>
+>>>>>>> main
           </div>
         </div>
         <div className="button-container">
@@ -54,6 +69,7 @@ const Header = memo(() => {
       <section className="mobile">
         {isOpen && (
           <div className="lg:hidden">
+<<<<<<< HEAD
             <Link to={"/disease"}>
               <div className="nav-link">질병정보</div>
             </Link>
@@ -63,6 +79,20 @@ const Header = memo(() => {
             <Link to={"/sub"}>
               <div className="nav-link">구독</div>
             </Link>
+=======
+            <div className="nav-link">
+              <Link to={"/disease"}>질병정보</Link>
+            </div>
+            <div className="nav-link">
+              <Link to={"/api"}>도구 및 API</Link>
+            </div>
+            <div className="nav-link">
+              <Link to={"/sub"}>구독</Link>
+            </div>
+            <div className="nav-link">
+              <Link to={"/map"}>지도</Link>
+            </div>
+>>>>>>> main
             <div className="px-4 py-4">
               <Link to={"/login"}>
                 <Button className="mobile-login-button">로그인</Button>

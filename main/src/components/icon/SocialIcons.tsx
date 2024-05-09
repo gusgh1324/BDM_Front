@@ -5,7 +5,11 @@ interface IconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
 }
 
+<<<<<<< HEAD
 export const GoogleIcon = (props: IconProps) => {
+=======
+export const GoogleIcon: React.FC<IconProps> = (props) => {
+>>>>>>> main
   return (
     <img
       {...props}
@@ -15,7 +19,11 @@ export const GoogleIcon = (props: IconProps) => {
   );
 };
 
+<<<<<<< HEAD
 export const FacebookIcon = (props: IconProps) => {
+=======
+export const FacebookIcon: React.FC<IconProps> = (props) => {
+>>>>>>> main
   return (
     <img
       {...props}
@@ -25,7 +33,11 @@ export const FacebookIcon = (props: IconProps) => {
   );
 };
 
+<<<<<<< HEAD
 export const TwitterIcon = (props: IconProps) => {
+=======
+export const TwitterIcon: React.FC<IconProps> = (props) => {
+>>>>>>> main
   return (
     <img
       {...props}
@@ -35,7 +47,11 @@ export const TwitterIcon = (props: IconProps) => {
   );
 };
 
+<<<<<<< HEAD
 export const KakaotalkIcon = (props: IconProps) => {
+=======
+export const KakaotalkIcon: React.FC<IconProps> = (props) => {
+>>>>>>> main
   return (
     <img
       {...props}
@@ -45,7 +61,11 @@ export const KakaotalkIcon = (props: IconProps) => {
   );
 };
 
+<<<<<<< HEAD
 export const LinkShareIcon = (props: IconProps) => {
+=======
+export const LinkShareIcon: React.FC<IconProps> = (props) => {
+>>>>>>> main
   return (
     <img
       {...props}
