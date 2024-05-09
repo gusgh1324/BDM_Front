@@ -2,7 +2,20 @@ import React from "react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import "./SubLayout.css";
 
-const SubLayout = ({ plans }) => {
+interface Plan {
+  name: string;
+  description: string;
+  price: number;
+  frequency: string;
+  features: string[];
+  recommended?: boolean;
+ }
+ 
+ interface SubLayoutProps {
+  plans: Plan[];
+ }
+
+const SubLayout = ({ plans } : SubLayoutProps) => {
   return (
     <div className="sub-content">
       <div className="sub-heading">

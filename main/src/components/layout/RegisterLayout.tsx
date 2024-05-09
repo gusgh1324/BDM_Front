@@ -5,7 +5,11 @@ import RegisterIcon from "../icon/RegisterIcon";
 import { GoogleIcon } from "../icon/SocialIcons";
 import "./MembersLayout.css";
 
-const RegisterLayout = ({ handleRegister }) => {
+interface RegisterLayoutProps {
+  handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
+ }
+
+const RegisterLayout = ({ handleRegister } : RegisterLayoutProps) => {
   return (
     <div className="page">
       <div className="box">
@@ -13,7 +17,7 @@ const RegisterLayout = ({ handleRegister }) => {
         <p className="subtitle">환영합니다! 🎉</p>
         <div className="social-button-container">
           <button className="social-button">
-            <GoogleIcon className="social-icon" />
+            <GoogleIcon className="social-icon" src={""} alt={""} />
             <span>Continue with Google</span>
           </button>
         </div>
