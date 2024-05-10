@@ -23,16 +23,7 @@ const MapContainer = () => {
       position: markerPosition,
     });
 
-    marker.setMap(map);
-
-    let overlayContent = '<div style="padding:50px;">카카오 양식장.</div>';
-    let overlayPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
-    let overlay = new window.kakao.maps.CustomOverlay({
-      map: map,
-      position: overlayPosition,
-      content: overlayContent,
-    });
-  }, []);
+  });
 
   return <div id="map" style={{ width: "100vh", height: "80vh" }} />;
 };

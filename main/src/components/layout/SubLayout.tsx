@@ -64,9 +64,11 @@ const SubLayout = ({ plans }: SubLayoutProps) => {
                   ))}
                 </ul>
                 <div className="sub-plan-button-wrapper">
-                  <a href="#" className="sub-plan-button">
-                    구독하기
-                  </a>
+                  {plan.price !== 0 && ( 
+                    <a href="#" className="sub-plan-button">
+                      구독하기
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
