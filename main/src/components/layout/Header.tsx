@@ -1,11 +1,21 @@
+// Header.tsx
 import React, { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Button } from "../ui/button";
+import LoginToggle from "../test/LoginToggle";
+import AuthButtons from "../ui/AuthButtons";
+import UserProfile from "../ui/UserProfile";
 import "./Header.css";
 
-const Header = memo(() => {
+interface HeaderProps {}
+
+const Header: React.FC<HeaderProps> = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleToggle = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
 
   return (
     <div className="bg-white">
@@ -32,14 +42,10 @@ const Header = memo(() => {
               <div className="nav-link">지도</div>
             </Link>
           </div>
+          <LoginToggle onToggle={handleToggle} />
         </div>
         <div className="button-container">
-          <Link to={"/login"}>
-            <Button className="mobile-login-button">로그인</Button>
-          </Link>
-          <Link to={"/register"}>
-            <Button className="mobile-register-button">회원가입</Button>
-          </Link>
+          {!isLoggedIn ? <AuthButtons /> : <UserProfile />}
         </div>
         <div className="lg:hidden">
           <button
@@ -70,12 +76,7 @@ const Header = memo(() => {
               <div className="nav-link">지도</div>
             </Link>
             <div className="px-4 py-4">
-              <Link to={"/login"}>
-                <Button className="mobile-login-button">로그인</Button>
-              </Link>
-              <Link to={"/register"}>
-                <Button className="mobile-register-button">회원가입</Button>
-              </Link>
+              {!isLoggedIn ? <AuthButtons /> : <UserProfile />}
             </div>
           </div>
         )}
