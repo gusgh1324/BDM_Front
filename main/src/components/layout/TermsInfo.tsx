@@ -1,10 +1,14 @@
 import React from "react";
 import "./TermsInfo.css";
+import LogoText from "../icon/LogoText";
 
 const TermsInfo = () => {
   return (
     <div className="terms-container">
-      <h1 className="terms-title">서비스 이용 약관</h1>
+      <h1 className="terms-title">
+        <LogoText />
+        서비스 이용 약관
+      </h1>
       <p className="terms-date">시행일자: 2024년 5월 8일</p>
       <div className="terms-content">
         <h2>제1조 (목적)</h2>

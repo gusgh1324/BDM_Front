@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
 import { GoogleIcon } from "../icon/SocialIcons";
+import LogoText from "../icon/LogoText";
 import "./MembersLayout.css";
 
 interface LoginLayoutProps {
@@ -12,7 +13,10 @@ const LoginLayout = ({ handleLogin }: LoginLayoutProps) => {
   return (
     <div className="page">
       <div className="box">
-        <h1 className="title">로그인</h1>
+        <h1 className="title">
+          <LogoText />
+          로그인
+        </h1>
         <p className="subtitle">반갑습니다 👋</p>
         <div className="social-button-container">
           <button className="social-button">
