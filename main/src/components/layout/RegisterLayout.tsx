@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
 import { GoogleIcon } from "../icon/SocialIcons";
 import "./MembersLayout.css";
+import LogoText from "../icon/LogoText";
 
 interface RegisterLayoutProps {
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -12,7 +13,10 @@ const RegisterLayout = ({ handleRegister }: RegisterLayoutProps) => {
   return (
     <div className="page">
       <div className="box">
-        <h1 className="title">회원가입</h1>
+        <h1 className="title">
+          <LogoText />
+          회원가입
+        </h1>
         <p className="subtitle">환영합니다! 🎉</p>
         <div className="social-button-container">
           <button className="social-button">
