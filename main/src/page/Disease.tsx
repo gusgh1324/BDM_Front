@@ -1,25 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import "./Disease.css";
-
-interface ListItemProps {
-  title: string;
-  description: string;
-}
-
-const ListItem = ({ title, description }: ListItemProps) => {
-  const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
-
-  return (
-    <div className="list-item">
-      <h2 onClick={() => setIsDescriptionVisible(!isDescriptionVisible)}>
-        {title}
-      </h2>
-      {isDescriptionVisible && <p>{description}</p>}
-    </div>
-  );
-};
+import DiseaseLayout from "../components/layout/DiseaseLayout";
 
 interface DiseaseInfo {
   title: string;
@@ -37,21 +19,14 @@ const Disease = () => {
     { title: "질병 3", description: "질병 3에 대한 설명" },
     { title: "질병 4", description: "질병 4에 대한 설명" },
     { title: "질병 5", description: "질병 5에 대한 설명" },
+    { title: "질병 6", description: "질병 6에 대한 설명" },
   ];
 
   return (
     <div className="page-container">
       <div className="content-container">
         <Header />
-        <div className="list">
-          {diseaseInfo.map((info, index) => (
-            <ListItem
-              key={index}
-              title={info.title}
-              description={info.description}
-            />
-          ))}
-        </div>
+        <DiseaseLayout diseaseInfo={diseaseInfo} />
         <Footer />
       </div>
     </div>
