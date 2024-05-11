@@ -1,0 +1,45 @@
+.nav-link:hover {
+  cursor: pointer;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-container {
+    @apply flex justify-between items-center py-4;
+  }
+
+  .logo-container {
+    @apply flex items-center space-x-6;
+  }
+
+  .nav-links {
+    @apply hidden lg:flex space-x-6;
+  }
+
+  .nav-link {
+    @apply text-gray-500 px-3 py-3 text-2xl font-bold;
+  }
+
+  .button-container {
+    @apply hidden lg:flex space-x-2;
+  }
+
+  .login-button {
+    @apply bg-blue-500 text-white px-6 py-3 text-lg w-full mb-2;
+  }
+
+  .register-button {
+    @apply bg-gray-300 text-gray-700 px-6 py-3 text-lg w-full mb-2;
+  }
+
+  .menu-button {
+    @apply relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800;
+  }
+
+  .menu-items {
+    @apply absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white px-1 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+  }
+}
