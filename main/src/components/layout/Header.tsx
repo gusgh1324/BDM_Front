@@ -1,21 +1,15 @@
-// Header.tsx
 import React, { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import LoginToggle from "../test/LoginToggle";
 import AuthButtons from "../ui/AuthButtons";
 import UserProfile from "../ui/UserProfile";
+import useStore from "../../Store"; // Zustand store 가져오기
 import "./Header.css";
 
-interface HeaderProps {}
-
-const Header: React.FC<HeaderProps> = memo(() => {
+const Header = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleToggle = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
+  const isLoggedIn = useStore((state) => state.isLoggedIn);
 
   return (
     <div className="bg-white">
@@ -42,7 +36,7 @@ const Header: React.FC<HeaderProps> = memo(() => {
               <div className="nav-link">지도</div>
             </Link>
           </div>
-          <LoginToggle onToggle={handleToggle} />
+          <LoginToggle />
         </div>
         <div className="button-container">
           {!isLoggedIn ? <AuthButtons /> : <UserProfile />}

@@ -1,15 +1,12 @@
 import { useState } from "react";
+import useStore from "../../Store"; // Zustand store 가져오기
 
-interface LoginToggleProps {
-  onToggle: () => void;
-}
-
-const LoginToggle = ({ onToggle }: LoginToggleProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const LoginToggle = () => {
+  const isLoggedIn = useStore((state) => state.isLoggedIn);
+  const toggleLogin = useStore((state) => state.toggleLogin);
 
   const handleToggle = () => {
-    setIsLoggedIn(!isLoggedIn);
-    onToggle();
+    toggleLogin();
   };
 
   return (
