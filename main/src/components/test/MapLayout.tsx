@@ -22,7 +22,6 @@ const MapContainer = () => {
     let marker = new window.kakao.maps.Marker({
       position: markerPosition,
     });
-
   });
 
   return <div id="map" style={{ width: "100vh", height: "80vh" }} />;

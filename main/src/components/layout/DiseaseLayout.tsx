@@ -11,7 +11,7 @@ interface ListItemProps {
   description: string;
 }
 
-const ListItem = ({ title, description } : ListItemProps) => {
+const ListItem = ({ title, description }: ListItemProps) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ interface DiseaseLayoutProps {
   diseaseInfo: DiseaseInfo[];
 }
 
-const DiseaseLayout = ({ diseaseInfo }:DiseaseLayoutProps) => {
+const DiseaseLayout = ({ diseaseInfo }: DiseaseLayoutProps) => {
   return (
     <div className="list">
       {diseaseInfo.map((info, index) => (
