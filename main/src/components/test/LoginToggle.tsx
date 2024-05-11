@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useStore from "../../Store"; // Zustand store 가져오기
 
 const LoginToggle = () => {
