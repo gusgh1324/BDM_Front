@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import SubLayout from "../components/layout/SubLayout";
@@ -13,7 +13,7 @@ interface Plan {
 }
 
 const Sub = () => {
-  const [plans, setPlans] = useState<Plan[]>([
+  const [plans] = useState<Plan[]>([
     {
       name: "프리 회원",
       description: "기본 기능을 무료로 이용할 수 있습니다.",

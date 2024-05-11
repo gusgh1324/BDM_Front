@@ -1,4 +1,3 @@
-import React from "react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import "./SubLayout.css";
 
@@ -52,7 +51,7 @@ const SubLayout = ({ plans }: SubLayoutProps) => {
                     원{plan.frequency}
                   </span>
                 </div>
-                <ul role="list" className="sub-plan-features">
+                <ul className="sub-plan-features">
                   {plan.features.map((feature) => (
                     <li key={feature} className="sub-plan-feature">
                       <CheckIcon
@@ -65,9 +64,7 @@ const SubLayout = ({ plans }: SubLayoutProps) => {
                 </ul>
                 <div className="sub-plan-button-wrapper">
                   {plan.price !== 0 && (
-                    <a href="#" className="sub-plan-button">
-                      구독하기
-                    </a>
+                    <button className="sub-plan-button">구독하기</button>
                   )}
                 </div>
               </div>

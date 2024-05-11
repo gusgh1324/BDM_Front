@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import MapLayout from "../components/layout/MapLayout";
@@ -53,7 +53,7 @@ const Map = () => {
           <div class="custom-overlay-content">${loc.content}</div>
         </div>
       `;
-      let overlay = new window.kakao.maps.CustomOverlay({
+      new window.kakao.maps.CustomOverlay({
         map: map,
         position: loc.latlng,
         content: overlayContent,
