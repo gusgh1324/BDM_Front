@@ -15,8 +15,8 @@ const useStore = create<State>()(
     {
       name: "auth-storage",
       getStorage: () => localStorage,
-    }
-  )
+    },
+  ),
 );
 
 export default useStore;
