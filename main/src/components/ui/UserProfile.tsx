@@ -7,9 +7,17 @@ import {
   Transition,
   MenuSeparator,
 } from "@headlessui/react";
+import useStore from "../../Store"; // Zustand store 가져오기
 import "../layout/Header.css";
 
 const UserProfile = () => {
+  const toggleLogin = useStore((state) => state.toggleLogin);
+
+  const handleLogout = () => {
+    toggleLogin();
+    alert("로그아웃되었습니다.");
+  };
+
   return (
     <React.Fragment>
       <Menu as="div" className="relative ml-3">
@@ -56,7 +64,11 @@ const UserProfile = () => {
                 const itemClassName = `${
                   focus ? "bg-gray-100 text-red-600" : "text-red-600"
                 } block w-full rounded-md px-3 py-2 text-left text-sm text-gray-700`;
-                return <button className={itemClassName}>로그아웃</button>;
+                return (
+                  <button className={itemClassName} onClick={handleLogout}>
+                    로그아웃
+                  </button>
+                );
               }}
             </MenuItem>
           </MenuItems>
