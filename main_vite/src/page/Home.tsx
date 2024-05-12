@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
+import { useImageStore } from "../Store";
 
 const Home = () => {
+  const { setUploadedImage, setAnalysisResult } = useImageStore();
   const [isDragging, setIsDragging] = useState<boolean>(false);
   useEffect(() => {
     let dragCount = 0;
@@ -33,8 +35,19 @@ const Home = () => {
       dragCount = 0;
       setIsDragging(false);
       const files = Array.from(e.dataTransfer?.files || []);
-      // 파일 처리 로직 구현
-      console.log(files);
+      if (files.length > 0) {
+        const file = files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const uploadedImage = e.target?.result as string;
+          setUploadedImage(uploadedImage);
+          // 이미지 분석 로직 처리
+          // ...
+          // 분석 결과를 analysisResult 상태에 저장
+          setAnalysisResult("분석 결과 예시");
+        };
+        reader.readAsDataURL(file);
+      }
     };
 
     window.addEventListener("dragenter", handleDragEnter);

@@ -30,9 +30,20 @@ html {
 }
 
 .page-container {
-  @apply min-h-screen bg-white;
+  @apply min-h-screen relative;
+  background-image: linear-gradient(
+    to right,
+    theme("colors.transparent"),
+    theme("colors.white") calc(45% - 512px),
+    theme("colors.white") calc(55% + 512px),
+    theme("colors.transparent")
+  );
 }
 
 .content-container {
   @apply max-w-screen-lg mx-auto px-4;
+}
+
+.background-image {
+  @apply fixed top-0 left-0 w-full h-full z-[-1] bg-cover bg-center opacity-80;
 }

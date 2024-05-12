@@ -7,7 +7,7 @@ import {
   Transition,
   MenuSeparator,
 } from "@headlessui/react";
-import useStore from "../../Store"; // Zustand store 가져오기
+import { useStore } from "../../Store"; // Zustand store 가져오기
 import "../layout/Header.css";
 
 const UserProfile = () => {

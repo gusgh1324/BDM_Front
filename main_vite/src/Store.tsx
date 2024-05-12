@@ -1,12 +1,19 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 interface State {
   isLoggedIn: boolean;
   toggleLogin: () => void;
 }
 
-const useStore = create<State>()(
+interface ImageState {
+  uploadedImage: string | null;
+  analysisResult: string | null;
+  setUploadedImage: (image: string | null) => void;
+  setAnalysisResult: (result: string | null) => void;
+}
+
+export const useStore = create<State>()(
   persist(
     (set) => ({
       isLoggedIn: false,
@@ -14,9 +21,14 @@ const useStore = create<State>()(
     }),
     {
       name: "auth-storage",
-      getStorage: () => localStorage,
-    },
-  ),
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
 );
 
-export default useStore;
+export const useImageStore = create<ImageState>((set) => ({
+  uploadedImage: null,
+  analysisResult: null,
+  setUploadedImage: (image: string | null) => set({ uploadedImage: image }),
+  setAnalysisResult: (result: string | null) => set({ analysisResult: result }),
+}));

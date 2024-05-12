@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import LoginToggle from "../test/LoginToggle";
 import AuthButtons from "../ui/AuthButtons";
 import UserProfile from "../ui/UserProfile";
-import useStore from "../../Store"; // Zustand store 가져오기
+import { useStore } from "../../Store"; // Zustand store 가져오기
 import "./Header.css";
 
 const Header = memo(() => {

@@ -1,4 +1,4 @@
-import useStore from "../../Store"; // Zustand store 가져오기
+import { useStore } from "../../Store"; // Zustand store 가져오기
 
 const LoginToggle = () => {
   const isLoggedIn = useStore((state) => state.isLoggedIn);
