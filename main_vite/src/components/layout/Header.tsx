@@ -41,7 +41,8 @@ const Header = memo(() => {
         <div className="button-container">
           {!isLoggedIn ? <AuthButtons /> : <UserProfile />}
         </div>
-        <div className="lg:hidden">
+        <div className="lg:hidden flex space-x-2">
+          {isLoggedIn && <UserProfile />}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="focus:outline-none"
@@ -69,9 +70,11 @@ const Header = memo(() => {
             <Link to={"/map"}>
               <div className="nav-link">지도</div>
             </Link>
-            <div className="px-4 py-4">
-              {!isLoggedIn ? <AuthButtons /> : <UserProfile />}
-            </div>
+            {!isLoggedIn && (
+              <div className="px-4 py-4">
+                <AuthButtons />
+              </div>
+            )}
           </div>
         )}
       </section>
