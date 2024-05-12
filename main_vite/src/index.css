@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html {
-  overflow-y: scroll;
-  overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 
 ::-webkit-scrollbar {
@@ -45,5 +44,5 @@ html {
 }
 
 .background-image {
-  @apply fixed top-0 left-0 w-full h-full z-[-1] bg-cover bg-center opacity-80;
+  @apply fixed w-full h-full z-[-1] bg-cover bg-center opacity-80;
 }

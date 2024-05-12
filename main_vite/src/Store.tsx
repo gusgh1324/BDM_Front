@@ -22,8 +22,8 @@ export const useStore = create<State>()(
     {
       name: "auth-storage",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
+    },
+  ),
 );
 
 export const useImageStore = create<ImageState>((set) => ({

@@ -8,6 +8,9 @@ import Register from "./page/Register";
 import ForgotPassword from "./page/ForgotPassword";
 import Terms from "./page/Terms";
 import Map from "./page/Map";
+import { CheckoutPage } from "./page/Checkout";
+import { SuccessPage } from "./page/Success";
+import { FailPage } from "./page/Fail";
 
 const App = () => {
   return (
@@ -22,6 +25,9 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/sandbox" element={<CheckoutPage />} />
+        <Route path="/sandbox/success" element={<SuccessPage />} />
+        <Route path="/sandbox/fail" element={<FailPage />} />
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
     </Router>

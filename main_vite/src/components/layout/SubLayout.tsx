@@ -1,4 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useNavigate } from "react-router-dom";
 import "./SubLayout.css";
 
 interface Plan {
@@ -15,6 +16,15 @@ interface SubLayoutProps {
 }
 
 const SubLayout = ({ plans }: SubLayoutProps) => {
+  const navigate = useNavigate();
+
+  const handleSubscribe = (plan: Plan) => {
+    const queryParams = new URLSearchParams();
+    queryParams.append("name", plan.name);
+    queryParams.append("price", plan.price.toString());
+    navigate(`/sandbox?${queryParams.toString()}`);
+  };
+
   return (
     <div className="sub-content">
       <div className="sub-heading">
@@ -64,7 +74,12 @@ const SubLayout = ({ plans }: SubLayoutProps) => {
                 </ul>
                 <div className="sub-plan-button-wrapper">
                   {plan.price !== 0 && (
-                    <button className="sub-plan-button">구독하기</button>
+                    <button
+                      className="sub-plan-button"
+                      onClick={() => handleSubscribe(plan)}
+                    >
+                      구독하기
+                    </button>
                   )}
                 </div>
               </div>
