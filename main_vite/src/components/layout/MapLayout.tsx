@@ -1,11 +1,10 @@
-import React from "react";
 import "./MapLayout.css";
 
 interface MapLayoutProps {
   mapId: string;
 }
 
-const MapLayout: React.FC<MapLayoutProps> = ({ mapId }) => {
+const MapLayout = ({ mapId }: MapLayoutProps) => {
   return (
     <div className="map-layout">
       <h1 className="title">수산질병관리사와 수산질병관리원 소개</h1>
