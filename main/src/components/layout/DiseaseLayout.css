@@ -1,6 +1,11 @@
 .list-item > h2:hover {
   cursor: pointer;
 }
+
+.list-item > h2 {
+  font-size : 20px;
+  font-weight: bold; 
+}
 .list-item {
   margin: 10px;
 }
