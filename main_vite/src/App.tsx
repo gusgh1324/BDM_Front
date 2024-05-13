@@ -11,6 +11,7 @@ import Map from "./page/Map";
 import { CheckoutPage } from "./page/Checkout";
 import { SuccessPage } from "./page/Success";
 import { FailPage } from "./page/Fail";
+import MyPage from "./page/MyPage";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/sandbox" element={<CheckoutPage />} />
         <Route path="/sandbox/success" element={<SuccessPage />} />
         <Route path="/sandbox/fail" element={<FailPage />} />
+        <Route path="/myPage" element={<MyPage />} />
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
     </Router>
