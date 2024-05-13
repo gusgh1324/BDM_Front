@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2 {
+
+    padding-top : 30px;
+    padding-bottom : 30px;
+}
+
+p {
+    padding-top : 30px;
+    padding-bottom : 30px;
+}
+
+
+.wrap {
+    position: fixed; /* 요소를 고정 위치로 설정합니다. */
+    top: 50%; /* 화면의 세로 중앙으로 이동합니다. */
+    left: 50%; /* 화면의 가로 중앙으로 이동합니다. */
+    transform: translate(-50%, -50%); /* 요소의 중심을 화면의 중심으로 이동합니다. */
+  }
+  
+  .flex{
+   padding-top : 100px;
+   padding-left: 300px;
+   
+  }
+
+  @media (max-width: 768px) {
+    .flex {
+      flex-direction: column; /* 화면 크기가 768px 이하일 때 세로로 배치합니다. */
+    }
+  
+    .flex button {
+      margin-bottom: 10px; /* 버튼들 사이의 간격을 조정합니다. */
+    }
+  }
+  
+  .bg-blue-400 {
+    height : 40px;
+    wideth : 95.99px;
+  }
+  
