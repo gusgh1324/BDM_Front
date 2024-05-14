@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import RegisterLayout from "../components/layout/RegisterLayout";
+import { useGoogleAuth } from "../hooks/useGoogleAuth";
 
 const Register = () => {
   const navigate = useNavigate();
+  const googleLogin = useGoogleAuth();
 
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -11,7 +13,12 @@ const Register = () => {
     navigate("/login"); // 회원가입 성공 시 로그인 페이지로 이동
   };
 
-  return <RegisterLayout handleRegister={handleRegister} />;
+  return (
+    <RegisterLayout
+      handleRegister={handleRegister}
+      handleGoogleLogin={googleLogin}
+    />
+  );
 };
 
 export default Register;
