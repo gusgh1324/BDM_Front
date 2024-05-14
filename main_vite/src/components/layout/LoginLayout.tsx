@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
-import { GoogleIcon } from "../icon/SocialIcons";
 import LogoText from "../icon/LogoText";
 import "./MembersLayout.css";
+import { GoogleIcon } from "../icon/SocialIcons";
 
 interface LoginLayoutProps {
   handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleGoogleLogin: () => void;
 }
 
-const LoginLayout = ({ handleLogin }: LoginLayoutProps) => {
+const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
   return (
     <div className="page">
       <div className="box">
@@ -19,7 +20,7 @@ const LoginLayout = ({ handleLogin }: LoginLayoutProps) => {
         </h1>
         <p className="subtitle">반갑습니다 👋</p>
         <div className="social-button-container">
-          <button className="social-button">
+          <button className="social-button" onClick={handleGoogleLogin}>
             <GoogleIcon className="social-icon" src={""} alt={""} />
             <span>Continue with Google</span>
           </button>
