@@ -9,6 +9,7 @@ import {
 } from "@headlessui/react";
 import { useStore } from "../../Store"; // Zustand store 가져오기
 import "../layout/Header.css";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const toggleLogin = useStore((state) => state.toggleLogin);
@@ -47,7 +48,11 @@ const UserProfile = () => {
                 const itemClassName = `${
                   focus ? "bg-gray-100" : ""
                 } block w-full rounded-md px-3 py-2 text-left text-sm text-gray-700`;
-                return <button className={itemClassName}>마이페이지</button>;
+                return (
+                <Link to={"/MyPage"}> 
+                <button className={itemClassName}>마이페이지</button>
+                </Link>
+                );
               }}
             </MenuItem>
             <MenuItem>
