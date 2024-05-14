@@ -5,7 +5,7 @@ const MyPageHomeLayout = () => {
     return (
 <div>
 
-    <h1>My Page Home</h1>
+    <h1 className="sub-title mb-6 text-center">My Page Home</h1>
     
 
     

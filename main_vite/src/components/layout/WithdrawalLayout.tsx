@@ -1,7 +1,8 @@
 import React from "react";
 import "./WithdrawalLayout.css";
+import { Link } from "react-router-dom";
 
-const WithdrawalLayout: React.FC = () => {
+const WithdrawalLayout = () => {
   const handleWithdraw = () => {
     // 회원탈퇴 성공 메시지를 변수에 저장합니다.
     const message: string = "회원탈퇴 성공!";
@@ -22,12 +23,12 @@ const WithdrawalLayout: React.FC = () => {
         placeholder="비밀번호를 입력하세요"
       />
       <div className="mt-4">
-        <button
+        <Link to={"/"}><button
           className="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
           onClick={handleWithdraw} // 회원탈퇴 버튼 클릭 시 handleWithdraw 함수 호출
         >
           회원탈퇴
-        </button>
+        </button></Link>
         <button className="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
           이전
         </button>
