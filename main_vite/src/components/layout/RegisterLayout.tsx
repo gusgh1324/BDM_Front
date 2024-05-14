@@ -7,9 +7,13 @@ import LogoText from "../icon/LogoText";
 
 interface RegisterLayoutProps {
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleGoogleLogin: () => void;
 }
 
-const RegisterLayout = ({ handleRegister }: RegisterLayoutProps) => {
+const RegisterLayout = ({
+  handleRegister,
+  handleGoogleLogin,
+}: RegisterLayoutProps) => {
   return (
     <div className="page">
       <div className="box">
@@ -19,7 +23,7 @@ const RegisterLayout = ({ handleRegister }: RegisterLayoutProps) => {
         </h1>
         <p className="subtitle">환영합니다! 🎉</p>
         <div className="social-button-container">
-          <button className="social-button">
+          <button className="social-button" onClick={handleGoogleLogin}>
             <GoogleIcon className="social-icon" src={""} alt={""} />
             <span>Continue with Google</span>
           </button>
