@@ -49,15 +49,10 @@ const UserProfile = () => {
                   focus ? "bg-gray-100" : ""
                 } block w-full rounded-md px-3 py-2 text-left text-sm text-gray-700`;
                 return (
-<<<<<<< HEAD
-                  <Link to={"/MyPage"}>
-                    <button className={itemClassName}>마이페이지</button>
-                  </Link>
-=======
+
                 <Link to={"/MyPageHome"}> 
                 <button className={itemClassName}>마이페이지</button>
                 </Link>
->>>>>>> 432f836b632f5fb34b7c6ccd8dab3a903e36e79c
                 );
               }}
             </MenuItem>
