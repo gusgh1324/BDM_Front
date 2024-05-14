@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
 import LogoText from "../icon/LogoText";
 import "./MembersLayout.css";
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleIcon } from "../icon/SocialIcons";
 
 interface LoginLayoutProps {
   handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
-  handleGoogleLogin: (credential: string) => void;
+  handleGoogleLogin: () => void;
 }
 
 const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
@@ -20,24 +20,10 @@ const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
         </h1>
         <p className="subtitle">반갑습니다 👋</p>
         <div className="social-button-container">
-          <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              if (credentialResponse.credential) {
-                handleGoogleLogin(credentialResponse.credential);
-              }
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-            type="standard"
-            theme="outline"
-            size="large"
-            text="signin_with"
-            shape="rectangular"
-            logo_alignment="left"
-            width="100%"
-            locale="en"
-          />
+          <button className="social-button" onClick={handleGoogleLogin}>
+            <GoogleIcon className="social-icon" src={""} alt={""} />
+            <span>Continue with Google</span>
+          </button>
         </div>
         <div className="divider">
           <span className="divider-text">or</span>
