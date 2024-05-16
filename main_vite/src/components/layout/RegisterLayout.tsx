@@ -1,9 +1,11 @@
+// src/components/layout/RegisterLayout.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
 import { GoogleIcon } from "../icon/SocialIcons";
 import "./MembersLayout.css";
 import LogoText from "../icon/LogoText";
+import { useRegisterStore } from "../../Store";
 
 interface RegisterLayoutProps {
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -14,6 +16,17 @@ const RegisterLayout = ({
   handleRegister,
   handleGoogleLogin,
 }: RegisterLayoutProps) => {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    loading,
+    error,
+  } = useRegisterStore();
+
   return (
     <div className="page">
       <div className="box">
@@ -41,6 +54,9 @@ const RegisterLayout = ({
                 type="email"
                 className="form-input"
                 placeholder="이메일 주소를 입력하세요"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </label>
             <label htmlFor="password" className="form-label">
@@ -51,9 +67,25 @@ const RegisterLayout = ({
                 type="password"
                 className="form-input"
                 placeholder="비밀번호를 입력하세요"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </label>
-
+            <label htmlFor="confirmPassword" className="form-label">
+              <p className="form-label-text">비밀번호 확인</p>
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                className="form-input"
+                placeholder="비밀번호를 다시 입력하세요"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </label>
+            {error && <p style={{ color: "red" }}>{error}</p>}
             <div className="form-options">
               <div>
                 <label htmlFor="remember" className="form-remember">
@@ -72,15 +104,19 @@ const RegisterLayout = ({
               </div>
             </div>
 
-            <button type="submit" className="form-submit-button">
+            <button
+              type="submit"
+              className="form-submit-button"
+              disabled={loading}
+            >
               <RegisterIcon className="form-submit-icon" />
-              <span>회원가입</span>
+              <span>{loading ? "Registering..." : "회원가입"}</span>
             </button>
 
             <p className="form-link">
               이미 회원이신가요?{" "}
               <Link to="/login" className="form-link-text">
-                <span>로그인 </span>
+                <span>로그인</span>
                 <span>
                   <LoginIcon className="form-link-icon" />
                 </span>

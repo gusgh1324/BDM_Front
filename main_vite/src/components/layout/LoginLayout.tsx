@@ -1,9 +1,11 @@
+// src/components/layout/LoginLayout.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
 import LogoText from "../icon/LogoText";
 import "./MembersLayout.css";
 import { GoogleIcon } from "../icon/SocialIcons";
+import { useLoginStore } from "../../Store";
 
 interface LoginLayoutProps {
   handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -11,6 +13,9 @@ interface LoginLayoutProps {
 }
 
 const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
+  const { email, setEmail, password, setPassword, loading, error } =
+    useLoginStore();
+
   return (
     <div className="page">
       <div className="box">
@@ -38,6 +43,9 @@ const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
                 type="email"
                 className="form-input"
                 placeholder="이메일 주소를 입력하세요"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </label>
             <label htmlFor="password" className="form-label">
@@ -48,8 +56,12 @@ const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
                 type="password"
                 className="form-input"
                 placeholder="비밀번호를 입력하세요"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </label>
+            {error && <p style={{ color: "red" }}>{error}</p>}
             <div className="form-options">
               <div>
                 <label htmlFor="remember" className="form-remember">
@@ -67,9 +79,13 @@ const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
                 </Link>
               </div>
             </div>
-            <button type="submit" className="form-submit-button">
+            <button
+              type="submit"
+              className="form-submit-button"
+              disabled={loading}
+            >
               <LoginIcon className="form-submit-icon" />
-              <span>로그인</span>
+              <span>{loading ? "Logging in..." : "로그인"}</span>
             </button>
             <p className="form-link">
               아직 회원이 아니신가요?{" "}
