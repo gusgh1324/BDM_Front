@@ -5,6 +5,9 @@ const LoginToggle = () => {
   const toggleLogin = useStore((state) => state.toggleLogin);
 
   const handleToggle = () => {
+    if (isLoggedIn) {
+      localStorage.removeItem("token");
+    }
     toggleLogin();
   };
 
