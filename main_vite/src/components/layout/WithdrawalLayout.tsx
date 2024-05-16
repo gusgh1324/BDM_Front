@@ -12,7 +12,8 @@ const WithdrawalLayout = () => {
   };
 
   return (
-    <div className="wrap">
+    <div className="withdrawal_container">
+    <div className="withdrawal_container2">
       <h2 className="sub-title mb-6">회원 탈퇴하기</h2>
 
       <input
@@ -33,6 +34,7 @@ const WithdrawalLayout = () => {
           이전
         </button>
       </div>
+    </div>
     </div>
   );
 };
