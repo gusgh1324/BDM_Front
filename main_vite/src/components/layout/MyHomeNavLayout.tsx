@@ -5,6 +5,7 @@ import "./MyHomeNavLayout.css";
 
 const MyHomeNavLayout = () => {
   return (
+    <div className="whole_sidebar">
     <div className="sidebar">
     <div className="sidebar-header">
       <h2>Sidebar</h2>
@@ -12,17 +13,17 @@ const MyHomeNavLayout = () => {
     <ul className="sidebar-menu">
       <li className="menu-item">
         <Link to="/" className="menu-link">
-          Home
+          Profile
         </Link>
       </li>
       <li className="menu-item">
         <Link to="/about" className="menu-link">
-          About
+          Billing
         </Link>
       </li>
       <li className="menu-item">
         <Link to="/contact" className="menu-link">
-          Contact
+          Account
         </Link>
       </li>
       <li className="menu-item">
@@ -32,7 +33,7 @@ const MyHomeNavLayout = () => {
       </li>
     </ul>
    
-    
+    </div>
   </div>
   );
 };
