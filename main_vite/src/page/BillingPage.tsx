@@ -1,7 +1,7 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 
-const Api = () => {
+const BillingPage = () => {
   return (
     <div className="page-container">
       <div className="content-container">
@@ -13,4 +13,4 @@ const Api = () => {
   );
 };
 
-export default Api;
+export default BillingPage;
