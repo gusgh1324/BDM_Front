@@ -1,7 +1,7 @@
 import React from "react";
 import "./WithdrawalLayout.css";
 import { Link } from "react-router-dom";
-
+import Header from "./Header";
 const WithdrawalLayout = () => {
   const handleWithdraw = () => {
     // 회원탈퇴 성공 메시지를 변수에 저장합니다.

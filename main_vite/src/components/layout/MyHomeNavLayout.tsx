@@ -11,26 +11,26 @@ const MyHomeNavLayout = () => {
       <h2>Sidebar</h2>
     </div>
     <ul className="sidebar-menu">
-      <li className="menu-item">
-        <Link to="/" className="menu-link">
-          Profile
+      
+        <Link to="/" className="menu-link"><li className="menu-item">
+          Profile</li>
         </Link>
-      </li>
-      <li className="menu-item">
-        <Link to="/about" className="menu-link">
-          Billing
+      
+     
+        <Link to="/about" className="menu-link"> <li className="menu-item">
+          Billing</li>
         </Link>
-      </li>
-      <li className="menu-item">
-        <Link to="/contact" className="menu-link">
-          Account
+      
+      
+        <Link to="/contact" className="menu-link"><li className="menu-item">
+          Account</li>
         </Link>
-      </li>
-      <li className="menu-item">
-        <Link to="/withdrawal" className="menu-link">
-          탈퇴하기
+      
+      
+        <Link to="/withdrawal" className="menu-link"><li className="menu-item">
+          탈퇴하기</li>
         </Link>
-      </li>
+      
     </ul>
    
     </div>
