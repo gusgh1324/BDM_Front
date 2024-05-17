@@ -1,12 +1,6 @@
-.sub-title {
-    text-align: center; /* 텍스트 가운데 정렬 */
-    margin-bottom: 6rem; /* 하단 여백 */
-  }
-  
-  /* 반응형 스타일링 */
-  @media screen and (max-width: 768px) {
-    .sub-title {
-      font-size: 1.5rem; /* 화면 크기가 작아질 때 제목의 글자 크기를 줄임 */
-    }
-  }
-  
+#jemok {padding: 50px;
+}
+.leftright {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}

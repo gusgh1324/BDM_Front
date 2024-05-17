@@ -12,6 +12,11 @@ import { CheckoutPage } from "./page/Checkout";
 import { SuccessPage } from "./page/Success";
 import { FailPage } from "./page/Fail";
 import MyPageHome from "./page/MyPageHome";
+import MyProfileLayout from "./components/layout/MyProfileLayout";
+import MyBillingLayout from "./components/layout/MyBillingLayout";
+import MyHistoryLayout from "./components/layout/MyHistoryLayout";
+import MyAccountLayout from "./components/layout/MyAccountsLayout";
+import MyWithdrawalLayout from "./components/layout/MyWithdrawalLayout";
 
 
 const App = () => {
@@ -31,6 +36,11 @@ const App = () => {
         <Route path="/sandbox/success" element={<SuccessPage />} />
         <Route path="/sandbox/fail" element={<FailPage />} />
         <Route path="/myPageHome" element={<MyPageHome />} />
+        <Route path="/myProfile" element={<MyPageHome />} />
+        <Route path="/myHistory" element={<MyHistoryLayout />} />
+        <Route path="/myBilling" element={<MyBillingLayout />} />
+        <Route path="/myAccount" element={<MyAccountLayout />} />
+        <Route path="/myWithdrawal" element={<MyWithdrawalLayout />} />
 
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
