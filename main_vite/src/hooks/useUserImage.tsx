@@ -15,12 +15,15 @@ export const useUserImage = (token: string) => {
 
     const fetchUserImage = async () => {
       try {
-        const response = await axios.get("http://localhost:8089/members/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true, // CORS 문제를 해결하기 위한 설정
-        });
+        const response = await axios.get(
+          "http://localhost:8089/server/members/me",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true, // CORS 문제를 해결하기 위한 설정
+          }
+        );
 
         if (response.status === 200) {
           setUserImage(response.data.userImage);
