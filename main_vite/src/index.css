@@ -29,7 +29,7 @@ html {
 }
 
 .page-container {
-  @apply min-h-screen relative;
+  @apply min-h-screen;
   background-image: linear-gradient(
     to right,
     theme("colors.transparent"),

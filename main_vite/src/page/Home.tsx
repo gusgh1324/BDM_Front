@@ -61,7 +61,7 @@ const Home = () => {
       window.removeEventListener("dragover", handleDragOver);
       window.removeEventListener("drop", handleDrop);
     };
-  }, []);
+  }, [setAnalysisResult, setUploadedImage]);
 
   return (
     <div className="page-container">

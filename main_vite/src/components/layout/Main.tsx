@@ -38,24 +38,30 @@ const Main = () => {
         </p>
       </div>
       <div className={`mt-8 md:w-1/2 ${uploadedImage ? "" : "md:order-last"}`}>
-        {uploadedImage ? (
-          <img src={uploadedImage} alt="Uploaded" className="w-full h-auto" />
-        ) : (
-          <label className="upload-label" htmlFor="file-upload">
-            <div className="upload-content">
-              <CloudUploadIcon className="upload-icon" />
-              <span className="upload-text">이미지 업로드</span>
-              <span className="upload-subtext">또는 파일 놓기</span>
-            </div>
-            <input
-              className="sr-only"
-              id="file-upload"
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-          </label>
-        )}
+        <label className="upload-label" htmlFor="file-upload">
+          <div className="relative w-full h-full">
+            {uploadedImage ? (
+              <img
+                src={uploadedImage}
+                alt="Uploaded"
+                className="uploaded-image"
+              />
+            ) : (
+              <div className="upload-content">
+                <CloudUploadIcon className="upload-icon" />
+                <span className="upload-text">이미지 업로드</span>
+                <span className="upload-subtext">또는 파일 놓기</span>
+              </div>
+            )}
+          </div>
+          <input
+            className="sr-only"
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+        </label>
       </div>
       <div className={`md:w-1/2 md:pl-4 ${analysisResult ? "" : "hidden"}`}>
         <h2 className="main-title">분석 결과</h2>

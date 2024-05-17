@@ -1,4 +1,3 @@
-// src/hooks/useLogin.ts
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useStore, useLoginStore } from "../Store";

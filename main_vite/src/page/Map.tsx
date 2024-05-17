@@ -5,30 +5,61 @@ import MapLayout from "../components/layout/MapLayout";
 
 declare global {
   interface Window {
-    kakao: any;
+    kakao: {
+      maps: {
+        LatLng: new (lat: number, lng: number) => LatLng;
+        Map: new (container: HTMLElement | null, options: MapOptions) => Map;
+        Marker: new (options: MarkerOptions) => Marker;
+        CustomOverlay: new (options: CustomOverlayOptions) => CustomOverlay;
+      };
+    };
   }
 }
 
-const Map = () => {
+interface LatLng {
+  getLat: () => number;
+  getLng: () => number;
+}
+
+interface MapOptions {
+  center: LatLng;
+  level: number;
+}
+
+interface Map {
+  setCenter: (latlng: LatLng) => void;
+  setLevel: (level: number) => void;
+}
+
+interface MarkerOptions {
+  position: LatLng;
+}
+
+interface Marker {
+  setMap: (map: Map | null) => void;
+}
+
+interface CustomOverlayOptions {
+  map: Map;
+  position: LatLng;
+  content: string;
+  yAnchor: number;
+}
+
+interface CustomOverlay {
+  setMap: (map: Map | null) => void;
+}
+
+const MapComponent = () => {
   useEffect(() => {
-    let container = document.getElementById("map");
-    let options = {
+    const container = document.getElementById("map");
+    const options: MapOptions = {
       center: new window.kakao.maps.LatLng(35.12, 129.06),
       level: 8,
     };
-    let map = new window.kakao.maps.Map(container, options);
+    const map = new window.kakao.maps.Map(container, options);
 
     const locations = [
-      // {
-      //   title: "국립수산물품질관리원",
-      //   latlng: new window.kakao.maps.LatLng(35.079338, 129.0756457),
-      //   content: "부산 영도구 해양로 337",
-      // },
-      // {
-      //   title: "국립수산물품질관리원 부산지원",
-      //   latlng: new window.kakao.maps.LatLng(35.099802, 129.0373695),
-      //   content: "부산 중구 중앙대로30번길 8",
-      // },
       {
         title: "부경대학교 수산질병관리원",
         latlng: new window.kakao.maps.LatLng(35.1337774, 129.10865),
@@ -42,12 +73,12 @@ const Map = () => {
     ];
 
     locations.forEach((loc) => {
-      let marker = new window.kakao.maps.Marker({
+      const marker = new window.kakao.maps.Marker({
         position: loc.latlng,
       });
       marker.setMap(map);
 
-      let overlayContent = `
+      const overlayContent = `
         <div class="custom-overlay">
           <div class="custom-overlay-title">${loc.title}</div>
           <div class="custom-overlay-content">${loc.content}</div>
@@ -73,4 +104,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default MapComponent;
