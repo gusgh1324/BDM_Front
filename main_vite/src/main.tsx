@@ -12,10 +12,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <div
         className="background-image"
         style={{
-          backgroundImage: "url('../../public/background-image2.jpg')",
+          backgroundImage: "url('/background-image2.jpg')",
         }}
       ></div>
       <App />
     </GoogleOAuthProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
