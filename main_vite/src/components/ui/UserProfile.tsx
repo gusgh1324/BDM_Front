@@ -15,7 +15,7 @@ import { useUserImage } from "../../hooks/useUserImage"; // useUserImage 훅 가
 const UserProfile = () => {
   const toggleLogin = useStore((state) => state.toggleLogin);
   const [userImage, setUserImage] = useState<string>(
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   );
 
   const token = localStorage.getItem("token");

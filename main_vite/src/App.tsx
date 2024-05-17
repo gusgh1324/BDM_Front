@@ -18,7 +18,6 @@ import MyHistoryLayout from "./components/layout/MyHistoryLayout";
 import MyAccountLayout from "./components/layout/MyAccountsLayout";
 import MyWithdrawalLayout from "./components/layout/MyWithdrawalLayout";
 
-
 const App = () => {
   return (
     <Router>

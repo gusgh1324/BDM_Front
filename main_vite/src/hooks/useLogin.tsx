@@ -17,7 +17,7 @@ const useLogin = () => {
         {
           email,
           pass: password,
-        }
+        },
       );
 
       if (response.status === 200) {

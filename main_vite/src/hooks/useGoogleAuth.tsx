@@ -19,7 +19,7 @@ export const useGoogleAuth = () => {
       try {
         const result = await axios.post(
           "http://localhost:8089/server/auth/google-login",
-          { code, redirectUri }
+          { code, redirectUri },
         );
 
         if (result.status === 200) {
