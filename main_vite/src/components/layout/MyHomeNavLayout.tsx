@@ -1,5 +1,3 @@
-
-import React from "react";
 import { Link } from "react-router-dom";
 import "./MyHomeNavLayout.css";
 
@@ -11,29 +9,23 @@ const MyHomeNavLayout = () => {
           <h2>Sidebar</h2>
         </div>
         <ul className="sidebar-menu">
-
           <Link to="/profile" className="menu-link">
-            <li className="menu-item">
-              Profile</li>
+            <li className="menu-item">Profile</li>
           </Link>
 
-
-          <Link to="/billingPage" className="menu-link"> <li className="menu-item">
-            Billing</li>
+          <Link to="/billingPage" className="menu-link">
+            {" "}
+            <li className="menu-item">Billing</li>
           </Link>
 
-
-          <Link to="/Account" className="menu-link"><li className="menu-item">
-            Account</li>
+          <Link to="/Account" className="menu-link">
+            <li className="menu-item">Account</li>
           </Link>
 
-
-          <Link to="/withdrawal" className="menu-link"><li className="menu-item">
-            탈퇴하기</li>
+          <Link to="/withdrawal" className="menu-link">
+            <li className="menu-item">탈퇴하기</li>
           </Link>
-
         </ul>
-
       </div>
     </div>
   );

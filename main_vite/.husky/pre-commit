@@ -1,0 +1,2 @@
+npx prettier --cache --write .
+npx tsc -p tsconfig.json --noEmit

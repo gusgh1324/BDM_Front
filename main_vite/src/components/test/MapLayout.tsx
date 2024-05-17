@@ -1,15 +1,9 @@
 import { useEffect } from "react";
 
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
-
 const MapContainer = () => {
   useEffect(() => {
-    let container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
-    let options = {
+    const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
+    const options = {
       center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
       level: 3, // 지도의 레벨
     };
@@ -18,7 +12,7 @@ const MapContainer = () => {
     new window.kakao.maps.Map(container, options);
 
     // 마커 생성
-    let markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+    const markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
     new window.kakao.maps.Marker({
       position: markerPosition,
     });
