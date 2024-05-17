@@ -12,7 +12,7 @@ import { CheckoutPage } from "./page/Checkout";
 import { SuccessPage } from "./page/Success";
 import { FailPage } from "./page/Fail";
 import MyPageHome from "./page/MyPageHome";
-import Withdrawal from "./page/Withdrawal";
+
 
 const App = () => {
   return (
@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/sandbox/success" element={<SuccessPage />} />
         <Route path="/sandbox/fail" element={<FailPage />} />
         <Route path="/myPageHome" element={<MyPageHome />} />
-        <Route path="/withdrawal" element={<Withdrawal />} />
+
         {/* 다른 페이지 경로도 여기에 추가할 수 있습니다 */}
       </Routes>
     </Router>

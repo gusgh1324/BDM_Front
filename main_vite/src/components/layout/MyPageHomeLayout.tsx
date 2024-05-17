@@ -1,6 +1,6 @@
-import Withdrawal from "../../page/Withdrawal";
 import Header from "./Header";
 import Footer from "./Footer";
+import React, {useState} from "react";
 const MyPageHomeLayout = () => {
     return (
 <div>
