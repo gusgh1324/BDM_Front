@@ -1,7 +1,7 @@
-.withdrawal_container {
-  display: flex;
+.withdrawal_container{
+    display: flex;
 }
 
 .withdrawal_container2 {
-  flex: 1;
+    flex:1;
 }

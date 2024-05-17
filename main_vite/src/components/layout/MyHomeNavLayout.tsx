@@ -6,35 +6,36 @@ import "./MyHomeNavLayout.css";
 const MyHomeNavLayout = () => {
   return (
     <div className="whole_sidebar">
-    <div className="sidebar">
-    <div className="sidebar-header">
-      <h2>Sidebar</h2>
+      <div className="sidebar">
+        <div className="sidebar-header">
+          <h2>Sidebar</h2>
+        </div>
+        <ul className="sidebar-menu">
+
+          <Link to="/profile" className="menu-link">
+            <li className="menu-item">
+              Profile</li>
+          </Link>
+
+
+          <Link to="/billingPage" className="menu-link"> <li className="menu-item">
+            Billing</li>
+          </Link>
+
+
+          <Link to="/Account" className="menu-link"><li className="menu-item">
+            Account</li>
+          </Link>
+
+
+          <Link to="/withdrawal" className="menu-link"><li className="menu-item">
+            탈퇴하기</li>
+          </Link>
+
+        </ul>
+
+      </div>
     </div>
-    <ul className="sidebar-menu">
-      <li className="menu-item">
-        <Link to="/" className="menu-link">
-          Profile
-        </Link>
-      </li>
-      <li className="menu-item">
-        <Link to="/about" className="menu-link">
-          Billing
-        </Link>
-      </li>
-      <li className="menu-item">
-        <Link to="/contact" className="menu-link">
-          Account
-        </Link>
-      </li>
-      <li className="menu-item">
-        <Link to="/withdrawal" className="menu-link">
-          탈퇴하기
-        </Link>
-      </li>
-    </ul>
-   
-    </div>
-  </div>
   );
 };
 
