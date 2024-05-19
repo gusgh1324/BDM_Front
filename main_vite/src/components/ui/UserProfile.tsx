@@ -31,7 +31,9 @@ const UserProfile = () => {
 
   const handleLogout = () => {
     toggleLogin();
+    sessionStorage.removeItem("token");
     localStorage.removeItem("token");
+    localStorage.removeItem("userImage"); // 이미지 파일 삭제
     alert("로그아웃되었습니다.");
   };
 
