@@ -12,13 +12,32 @@ import { CheckoutPage } from "./page/Checkout";
 import { SuccessPage } from "./page/Success";
 import { FailPage } from "./page/Fail";
 import MyPageHome from "./page/MyPageHome";
-import MyProfileLayout from "./components/layout/MyProfileLayout";
 import MyBillingLayout from "./components/layout/MyBillingLayout";
 import MyHistoryLayout from "./components/layout/MyHistoryLayout";
 import MyAccountLayout from "./components/layout/MyAccountsLayout";
 import MyWithdrawalLayout from "./components/layout/MyWithdrawalLayout";
+import { useStore } from "./Store";
+import { useEffect } from "react";
 
 const App = () => {
+  const { setLoggedIn } = useStore();
+
+  useEffect(() => {
+    const sessionToken = sessionStorage.getItem("token");
+    const localToken = localStorage.getItem("token");
+
+    if (sessionToken) {
+      console.log("세션 스토리지에서 토큰 확인됨");
+      setLoggedIn(true);
+    } else if (localToken) {
+      console.log("로컬 스토리지에서 토큰 확인됨");
+      setLoggedIn(true);
+    } else {
+      console.log("토큰 없음");
+      setLoggedIn(false);
+    }
+  }, [setLoggedIn]);
+
   return (
     <Router>
       <Routes>

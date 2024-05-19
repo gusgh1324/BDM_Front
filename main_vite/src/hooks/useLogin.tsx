@@ -7,7 +7,11 @@ export const useLogin = () => {
   const { setLoading, setError } = useLoginStore();
   const { toggleLogin } = useStore();
 
-  const login = async (email: string, password: string) => {
+  const login = async (
+    email: string,
+    password: string,
+    rememberMe: boolean,
+  ) => {
     setLoading(true);
     setError(null);
 
@@ -22,7 +26,13 @@ export const useLogin = () => {
 
       if (response.status === 200) {
         const token = response.data.token;
-        localStorage.setItem("token", token);
+        if (rememberMe) {
+          console.log("로컬에 저장됨");
+          localStorage.setItem("token", token);
+        } else {
+          console.log("세션에 저장됨");
+          sessionStorage.setItem("token", token);
+        }
         toggleLogin();
         alert("로그인 되었습니다.");
         navigate("/");

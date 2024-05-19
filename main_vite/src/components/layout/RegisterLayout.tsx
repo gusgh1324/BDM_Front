@@ -25,10 +25,22 @@ const RegisterLayout = ({
     setConfirmPassword,
     loading,
     error,
+    setError,
+    agreeToTerms,
+    setAgreeToTerms,
   } = useRegisterStore();
 
   const { isLengthValid, hasNumber, hasSpecialChar, noWhitespace } =
-    usePasswordValidation(password); // 추가된 부분
+    usePasswordValidation(password);
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!agreeToTerms) {
+      setError("약관에 동의해 주세요.");
+      return;
+    }
+    handleRegister(e);
+  };
 
   return (
     <div className="page">
@@ -47,7 +59,7 @@ const RegisterLayout = ({
         <div className="divider">
           <span className="divider-text">or</span>
         </div>
-        <form className="form" onSubmit={handleRegister}>
+        <form className="form" onSubmit={onSubmit}>
           <div className="form-fields">
             <label htmlFor="email" className="form-label">
               <p className="form-label-text">이메일 주소</p>
@@ -110,6 +122,8 @@ const RegisterLayout = ({
                     type="checkbox"
                     id="remember"
                     className="form-remember-checkbox"
+                    checked={agreeToTerms}
+                    onChange={(e) => setAgreeToTerms(e.target.checked)}
                   />
                   <span>전체 약관 동의</span>
                 </label>

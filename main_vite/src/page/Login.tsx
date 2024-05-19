@@ -5,13 +5,13 @@ import { useLogin } from "../hooks/useLogin";
 import { useLoginStore } from "../Store";
 
 const Login = () => {
-  const { email, password } = useLoginStore();
+  const { email, password, rememberMe } = useLoginStore();
   const login = useLogin();
   const googleLogin = useGoogleAuth();
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    login(email, password);
+    login(email, password, rememberMe);
   };
 
   return (
