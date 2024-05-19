@@ -1,9 +1,8 @@
-// src/hooks/useRegister.ts
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useRegisterStore } from "../Store";
 
-const useRegister = () => {
+export const useRegister = () => {
   const navigate = useNavigate();
   const { setLoading, setError } = useRegisterStore();
 
@@ -43,7 +42,5 @@ const useRegister = () => {
     }
   };
 
-  return { register };
+  return register;
 };
-
-export default useRegister;

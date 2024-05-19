@@ -13,7 +13,7 @@ export const useGoogleAuth = () => {
       setLoading(true);
       setError(null);
 
-      const code = response.code; // code를 받습니다.
+      const code = response.code;
       const redirectUri = "http://localhost:3000"; // 프론트엔드에서 사용된 redirect_uri
 
       try {

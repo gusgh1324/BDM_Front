@@ -22,7 +22,7 @@ export const useUserImage = (token: string) => {
               Authorization: `Bearer ${token}`,
             },
             withCredentials: true, // CORS 문제를 해결하기 위한 설정
-          }
+          },
         );
 
         if (response.status === 200) {

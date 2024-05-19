@@ -1,4 +1,3 @@
-// src/components/layout/RegisterLayout.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
@@ -6,6 +5,7 @@ import { GoogleIcon } from "../icon/SocialIcons";
 import "./MembersLayout.css";
 import LogoText from "../icon/LogoText";
 import { useRegisterStore } from "../../Store";
+import { usePasswordValidation } from "../../hooks/usePasswordValidation";
 
 interface RegisterLayoutProps {
   handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -26,6 +26,9 @@ const RegisterLayout = ({
     loading,
     error,
   } = useRegisterStore();
+
+  const { isLengthValid, hasNumber, hasSpecialChar, noWhitespace } =
+    usePasswordValidation(password); // 추가된 부분
 
   return (
     <div className="page">
@@ -71,6 +74,20 @@ const RegisterLayout = ({
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <ul className="list-disc text-xs mt-2 ml-5">
+                <li style={{ color: isLengthValid ? "green" : "red" }}>
+                  글자 8자 이상
+                </li>
+                <li style={{ color: hasNumber ? "green" : "red" }}>
+                  숫자 1개 이상
+                </li>
+                <li style={{ color: hasSpecialChar ? "green" : "red" }}>
+                  특수문자 1개 이상
+                </li>
+                <li style={{ color: noWhitespace ? "green" : "red" }}>
+                  앞뒤 공백 미포함
+                </li>
+              </ul>
             </label>
             <label htmlFor="confirmPassword" className="form-label">
               <p className="form-label-text">비밀번호 확인</p>

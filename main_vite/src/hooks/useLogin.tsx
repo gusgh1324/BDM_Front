@@ -2,7 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useStore, useLoginStore } from "../Store";
 
-const useLogin = () => {
+export const useLogin = () => {
   const navigate = useNavigate();
   const { setLoading, setError } = useLoginStore();
   const { toggleLogin } = useStore();
@@ -36,7 +36,5 @@ const useLogin = () => {
     }
   };
 
-  return { login };
+  return login;
 };
-
-export default useLogin;
