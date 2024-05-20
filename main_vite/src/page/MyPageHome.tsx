@@ -4,7 +4,6 @@ import Footer from "../components/layout/Footer";
 import MyPageHomeLayout from "../components/layout/MyPageHomeLayout";
 
 
-  
 
 const MyPageHome = () => {
  
@@ -12,7 +11,8 @@ const MyPageHome = () => {
     <div className="page-container">
       <div className="content-container">
         <Header />
-        <MyPageHomeLayout />
+       
+        <MyPageHomeLayout topics="My Page Home"/>
         <Footer />
       </div>
      

@@ -4,20 +4,23 @@ import "./MySidebarLayout.css"
 
 
 const MySidebarLayout = () => {
+ 
 return(
   <div >
-    <h1>사이드바</h1>
+    
+    <h1 ><a href="/">Main Page</a></h1>
   <ul>
      <Link to="/myProfile" className="sidelink">
          <li className="moknok">Profile</li>
         </Link>
      <Link to="/myHistory" className="sidelink">
          <li className="moknok">History</li>
+        
         </Link>
      <Link to="/myBilling" className="sidelink">
          <li className="moknok">Billing</li>
         </Link>
-     <Link to="/myAccountt" className="sidelink">
+     <Link to="/myAccount" className="sidelink">
          <li className="moknok">Account</li>
         </Link>
      <Link to="/myWithdrawal" className="sidelink">
