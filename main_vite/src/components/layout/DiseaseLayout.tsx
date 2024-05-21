@@ -51,7 +51,16 @@ const DiseaseLayout = ({ diseaseInfo }: DiseaseLayoutProps) => {
           href="https://www.nifs.go.kr/fishguard/disease01.do#"
           onClick={handleImageClick}
         >
-          <img src="/국수과.jpg" alt="" />
+          <img src="/국수과.jpg" alt="국립수산과학원_국가수산물질병정보" />
+        </a>
+        <a
+          href="https://nfqs.go.kr/PreventionMgM/index1.jsp"
+          onClick={handleImageClick}
+        >
+          <img
+            src="/국가수산생물_방역_통합관리.png"
+            alt="국가수산생물 방역 통합관리"
+          />
         </a>
       </div>
     </div>
