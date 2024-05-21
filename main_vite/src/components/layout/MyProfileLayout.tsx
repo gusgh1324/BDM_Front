@@ -3,7 +3,7 @@ import React from "react";
 const MyProfileLayout = () => {
   return (
     <div className="max-w-md mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-6 text-gray-600">My Profile</h1>
+      <h1 className="text-2xl font-bold  mb-6 text-gray-600">My Profile</h1>
 
       <div>
         <ul>
@@ -34,6 +34,9 @@ const MyProfileLayout = () => {
               <li className="profilelist">
                 <label htmlFor="address" className="block text-gray-600">Address:</label>
                 <input id="address" className="tex w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-400" type="text" />
+              </li>
+              <li>
+                <button type="submit" value={"submit"}></button>
               </li>
             </div>
           </div>

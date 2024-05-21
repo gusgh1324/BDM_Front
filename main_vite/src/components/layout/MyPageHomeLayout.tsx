@@ -6,6 +6,7 @@ import MyHistoryLayout from "./MyHistoryLayout";
 import MyAccountLayout from "./MyAccountLatout";
 import MyWithdrawalLayout from "./MyWithdrawalLayout";
 import { Link } from "react-router-dom";
+import "./MyPageHomeLayout.css";
 
 interface MyPageHomeLayoutProps {
   topics: string[];
