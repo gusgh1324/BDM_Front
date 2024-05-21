@@ -28,11 +28,11 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
             </div>
           ) : (child)
         )}
-        ASD
+        
       </div>
-      ASD
+      
       <div className="content">
-        ASD
+        
         {selectedMode === 'Mode 1' && <MyProfileLayout />}
         {selectedMode === 'Mode 2' && <MyBillingLayout />}
         {selectedMode === 'Mode 3' && <MyAccountLayout />}
