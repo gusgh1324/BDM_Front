@@ -1,16 +1,15 @@
-// src/hooks/useRegister.ts
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useRegisterStore } from "../Store";
 
-const useRegister = () => {
+export const useRegister = () => {
   const navigate = useNavigate();
   const { setLoading, setError } = useRegisterStore();
 
   const register = async (
     email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
   ) => {
     setLoading(true);
     setError(null);
@@ -27,7 +26,7 @@ const useRegister = () => {
         {
           email,
           password,
-        }
+        },
       );
 
       if (response.status === 200) {
@@ -43,7 +42,5 @@ const useRegister = () => {
     }
   };
 
-  return { register };
+  return register;
 };
-
-export default useRegister;

@@ -2,12 +2,16 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useStore, useLoginStore } from "../Store";
 
-const useLogin = () => {
+export const useLogin = () => {
   const navigate = useNavigate();
   const { setLoading, setError } = useLoginStore();
   const { toggleLogin } = useStore();
 
-  const login = async (email: string, password: string) => {
+  const login = async (
+    email: string,
+    password: string,
+    rememberMe: boolean,
+  ) => {
     setLoading(true);
     setError(null);
 
@@ -17,12 +21,18 @@ const useLogin = () => {
         {
           email,
           pass: password,
-        }
+        },
       );
 
       if (response.status === 200) {
         const token = response.data.token;
-        localStorage.setItem("token", token);
+        if (rememberMe) {
+          console.log("로컬에 저장됨");
+          localStorage.setItem("token", token);
+        } else {
+          console.log("세션에 저장됨");
+          sessionStorage.setItem("token", token);
+        }
         toggleLogin();
         alert("로그인 되었습니다.");
         navigate("/");
@@ -36,7 +46,5 @@ const useLogin = () => {
     }
   };
 
-  return { login };
+  return login;
 };
-
-export default useLogin;

@@ -1,4 +1,3 @@
-// src/components/layout/LoginLayout.tsx
 import React from "react";
 import { Link } from "react-router-dom";
 import { LoginIcon, RegisterIcon, HomeIcon } from "../icon/MemberIcons";
@@ -13,8 +12,16 @@ interface LoginLayoutProps {
 }
 
 const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
-  const { email, setEmail, password, setPassword, loading, error } =
-    useLoginStore();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    loading,
+    error,
+    rememberMe,
+    setRememberMe,
+  } = useLoginStore();
 
   return (
     <div className="page">
@@ -69,6 +76,8 @@ const LoginLayout = ({ handleLogin, handleGoogleLogin }: LoginLayoutProps) => {
                     type="checkbox"
                     id="remember"
                     className="form-remember-checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
                   />
                   <span>로그인 유지</span>
                 </label>

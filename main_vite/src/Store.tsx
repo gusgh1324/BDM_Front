@@ -4,6 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 interface State {
   isLoggedIn: boolean;
   toggleLogin: () => void;
+  setLoggedIn: (loggedIn: boolean) => void;
 }
 
 interface ImageState {
@@ -22,6 +23,8 @@ interface LoginState {
   setLoading: (loading: boolean) => void;
   error: string | null;
   setError: (error: string | null) => void;
+  rememberMe: boolean;
+  setRememberMe: (rememberMe: boolean) => void;
 }
 
 interface RegisterState {
@@ -35,6 +38,8 @@ interface RegisterState {
   setLoading: (loading: boolean) => void;
   error: string | null;
   setError: (error: string | null) => void;
+  agreeToTerms: boolean;
+  setAgreeToTerms: (agreeToTerms: boolean) => void;
 }
 
 export const useStore = create<State>()(
@@ -42,12 +47,13 @@ export const useStore = create<State>()(
     (set) => ({
       isLoggedIn: false,
       toggleLogin: () => set((state) => ({ isLoggedIn: !state.isLoggedIn })),
+      setLoggedIn: (loggedIn: boolean) => set({ isLoggedIn: loggedIn }),
     }),
     {
       name: "auth-storage",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
+    },
+  ),
 );
 
 export const useImageStore = create<ImageState>((set) => ({
@@ -66,6 +72,8 @@ export const useLoginStore = create<LoginState>((set) => ({
   setLoading: (loading) => set({ loading }),
   error: null,
   setError: (error) => set({ error }),
+  rememberMe: false,
+  setRememberMe: (rememberMe) => set({ rememberMe }),
 }));
 
 export const useRegisterStore = create<RegisterState>((set) => ({
@@ -79,4 +87,6 @@ export const useRegisterStore = create<RegisterState>((set) => ({
   setLoading: (loading) => set({ loading }),
   error: null,
   setError: (error) => set({ error }),
+  agreeToTerms: false,
+  setAgreeToTerms: (agreeToTerms) => set({ agreeToTerms }),
 }));

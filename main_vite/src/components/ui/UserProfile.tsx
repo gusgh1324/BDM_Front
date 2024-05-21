@@ -11,14 +11,15 @@ import { useStore } from "../../Store"; // Zustand store 가져오기
 import "../layout/Header.css";
 import { Link } from "react-router-dom";
 import { useUserImage } from "../../hooks/useUserImage"; // useUserImage 훅 가져오기
+import useToken from "../../hooks/useToken";
 
 const UserProfile = () => {
   const toggleLogin = useStore((state) => state.toggleLogin);
   const [userImage, setUserImage] = useState<string>(
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   );
 
-  const token = localStorage.getItem("token");
+  const token = useToken();
 
   const { userImage: fetchedUserImage, loading } = useUserImage(token!);
 
@@ -30,7 +31,9 @@ const UserProfile = () => {
 
   const handleLogout = () => {
     toggleLogin();
+    sessionStorage.removeItem("token");
     localStorage.removeItem("token");
+    localStorage.removeItem("userImage"); // 이미지 파일 삭제
     alert("로그아웃되었습니다.");
   };
 

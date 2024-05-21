@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Header from "./Header";
 
 const MyWithdrawalLayout = () => {
   const handleWithdraw = () => {
@@ -8,13 +7,11 @@ const MyWithdrawalLayout = () => {
 
     // alert 창을 띄웁니다.
     alert(message);
-  };
-
+  
   return (
     <div className="withdrawal_container">
       <div className="withdrawal_container2">
         <h2 className="sub-title mb-6">회원 탈퇴하기</h2>
-
         <input
           id="password"
           name="password"
