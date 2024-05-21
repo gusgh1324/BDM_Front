@@ -17,7 +17,7 @@ const ForgotPasswordLayout = ({
         <p className="subtitle">비밀번호를 재설정합니다 🔒</p>
         <form className="form" onSubmit={handleForgotPassword}>
           <div className="form-fields">
-            <label htmlFor="email" className="form  -label">
+            <label htmlFor="email" className="form -label">
               <p className="form-label-text">이메일 주소</p>
               <input
                 id="email"

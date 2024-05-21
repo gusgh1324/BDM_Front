@@ -41,7 +41,7 @@ const Header = memo(() => {
         <div className="button-container">
           {!isLoggedIn ? <AuthButtons /> : <UserProfile />}
         </div>
-        <div className="lg:hidden flex space-x-2">
+        <div className="flex space-x-2 lg:hidden">
           {isLoggedIn && <UserProfile />}
           <button
             onClick={() => setIsOpen(!isOpen)}

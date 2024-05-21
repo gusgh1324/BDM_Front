@@ -9,7 +9,7 @@ export const useRegister = () => {
   const register = async (
     email: string,
     password: string,
-    confirmPassword: string,
+    confirmPassword: string
   ) => {
     setLoading(true);
     setError(null);
@@ -26,7 +26,7 @@ export const useRegister = () => {
         {
           email,
           password,
-        },
+        }
       );
 
       if (response.status === 200) {
