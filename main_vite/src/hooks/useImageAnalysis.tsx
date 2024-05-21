@@ -25,14 +25,12 @@ export const useImageAnalysis = (file: File | null, token: string) => {
       setError(null);
 
       try {
-        // 이미지 업로드
         const formData = new FormData();
         formData.append("image", file);
         formData.append("token", token);
 
         const response = await axios.post(
           "http://localhost:8089/server/api/predictions/analyze_image",
-          // "http://localhost:8089/server/api/fish-disease/detect",
           formData,
           {
             headers: {
@@ -42,7 +40,6 @@ export const useImageAnalysis = (file: File | null, token: string) => {
           }
         );
 
-        // 업로드된 이미지 URL을 상태에 저장
         const reader = new FileReader();
         reader.onload = (e) => {
           setUploadedImage(e.target?.result as string);
@@ -50,9 +47,8 @@ export const useImageAnalysis = (file: File | null, token: string) => {
         reader.readAsDataURL(file);
 
         if (response.status === 200) {
-          // SSE 설정
           const eventSource = new EventSource(
-            "http://localhost:8089/server/api/predictions/analyze_image"
+            "http://localhost:8089/server/api/predictions/stream"
           );
 
           eventSource.addEventListener("progress", (event: MessageEvent) => {
