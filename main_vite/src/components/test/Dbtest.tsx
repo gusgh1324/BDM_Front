@@ -10,7 +10,7 @@ interface Data {
 }
 
 function Dbtest() {
-  const baseUrl = "http://localhost:8089";
+  const baseUrl = "http://localhost:8089/server";
 
   const [data, setData] = useState<Data[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +21,7 @@ function Dbtest() {
 
   async function putSpringData() {
     try {
-      const res = await axios.get<Data[]>(`${baseUrl}/server/members/get/all`);
+      const res = await axios.get<Data[]>(`${baseUrl}/members/get/all`);
       console.log(res.data);
       setData(res.data);
     } catch (err) {
