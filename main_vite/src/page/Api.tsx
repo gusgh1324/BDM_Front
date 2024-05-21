@@ -1,5 +1,6 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import ApiLayout from "../components/layout/ApiLayout";
 import Dbtest from "../components/test/Dbtest";
 
 const Api = () => {

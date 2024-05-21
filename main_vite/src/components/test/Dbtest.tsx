@@ -1,5 +1,7 @@
+// src/components/Dbtest.tsx
+
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { getAllUsers } from "../../db/user/User";
 
 interface Data {
   mno: number;
@@ -10,25 +12,20 @@ interface Data {
 }
 
 function Dbtest() {
-  const baseUrl = "http://localhost:8089/server";
-
   const [data, setData] = useState<Data[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    putSpringData();
-  }, []);
-
-  async function putSpringData() {
-    try {
-      const res = await axios.get<Data[]>(`${baseUrl}/members/get/all`);
-      console.log(res.data);
-      setData(res.data);
-    } catch (err) {
-      console.error(err);
-      setError("데이터를 불러오는 중 에러가 발생했습니다.");
+    async function fetchData() {
+      try {
+        const users = await getAllUsers();
+        setData(users);
+      } catch (err) {
+        setError("데이터를 불러오는 중 에러가 발생했습니다.");
+      }
     }
-  }
+    fetchData();
+  }, []);
 
   return (
     <div className="App">
