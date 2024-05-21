@@ -1,6 +1,7 @@
 const MyBillingLayout = () => {
-    return(<div>
-        My Billing
+    return(
+    <div>
+        <h1 className="text-2xl font-bold  mb-6 text-gray-600">My Billing</h1>
     </div>
     );
 };

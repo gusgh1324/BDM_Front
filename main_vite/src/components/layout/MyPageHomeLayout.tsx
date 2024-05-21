@@ -46,7 +46,7 @@ const RenderContent: React.FC<{ topic: string }> = ({ topic }) => {
       return <div><MyAccountLayout/></div>;
     case "히스토리":
       return <div><MyHistoryLayout/></div>;
-    case "탈퇴":
+    case "회원탈퇴":
       return <div><MyWithdrawalLayout/></div>;
     default:
       return null;
