@@ -2,3 +2,16 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
 }
+
+.jebaljombakyura {
+    padding : 10px;
+  border: 1px solid pink;
+  border-radius: 30px;
+  margin : 10px;
+ 
+  min-width: 200px;
+}
+
+.content {
+    margin-left: 50px;
+}

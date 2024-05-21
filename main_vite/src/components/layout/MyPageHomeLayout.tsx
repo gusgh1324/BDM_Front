@@ -24,7 +24,7 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
       <div>
       <ul>
         {topics.map((topic, index) => (
-          <Link to={""}><li key={index} onClick={() => handleTopicClick(topic)}>
+          <Link to={""}><li className="jebaljombakyura" key={index} onClick={() => handleTopicClick(topic)}>
             {topic}
           </li></Link>
         ))}

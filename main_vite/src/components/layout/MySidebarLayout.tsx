@@ -24,7 +24,7 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
       <div className="side">
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child) ? (
-            <div onClick={() => handleModeChange(`Mode ${index + 1}`)}>
+            <div className="sidebarList" onClick={() => handleModeChange(`Mode ${index + 1}`)}>
               {child}
             </div>
           ) : (child)
