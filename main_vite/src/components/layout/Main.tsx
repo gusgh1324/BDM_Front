@@ -2,28 +2,41 @@ import React, { useState, useEffect } from "react";
 import CloudUploadIcon from "../icon/CloudUploadIcon";
 import "./Main.css";
 import { useImageStore } from "../../Store";
+import { useImageAnalysis } from "../../hooks/useImageAnalysis";
+import useToken from "../../hooks/useToken";
 
-const Main = () => {
+interface MainProps {
+  file: File | null;
+  setFile: React.Dispatch<React.SetStateAction<File | null>>;
+}
+
+const Main = ({ file, setFile }: MainProps) => {
   const { uploadedImage, analysisResult, setUploadedImage, setAnalysisResult } =
     useImageStore();
   const [animate, setAnimate] = useState(false);
   const [newTextBoxState, setNewTextBoxState] = useState(false);
+  const token = useToken();
+
+  const {
+    analysisResult: result,
+    loading,
+    error,
+  } = useImageAnalysis(file, token!);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setUploadedImage(e.target?.result as string);
-        // 이미지 분석 로직 처리
-        // ...
-        // 분석 결과를 analysisResult 상태에 저장
-        setAnalysisResult("분석 결과 예시");
-        setAnimate(true); // 애니메이션 트리거
-      };
-      reader.readAsDataURL(file);
+      setFile(file);
+      setUploadedImage(URL.createObjectURL(file)); // Show the selected image
     }
   };
+
+  useEffect(() => {
+    if (!loading && result) {
+      setAnalysisResult(result);
+      setAnimate(true);
+    }
+  }, [loading, result, setAnalysisResult]);
 
   useEffect(() => {
     if (animate) {
@@ -82,7 +95,10 @@ const Main = () => {
           />
         </label>
       </div>
-      {uploadedImage && (
+      {uploadedImage && loading && (
+        <div className="loading-indicator">이미지 분석 중...</div>
+      )}
+      {uploadedImage && !loading && (
         <div
           className={`absolute transition-all duration-1000 delay-1000 overflow-hidden max-h-[70vh] ${
             newTextBoxState
@@ -95,6 +111,7 @@ const Main = () => {
           <p className="main-description">{analysisResult}</p>
         </div>
       )}
+      {error && <div className="error-message">에러: {error}</div>}
     </div>
   );
 };
