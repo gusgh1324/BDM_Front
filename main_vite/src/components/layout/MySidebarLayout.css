@@ -1,14 +1,52 @@
+.jemok {
+   font-weight: bold;
+   display:center ;
+   text-align: center;
+}
 .moknok {
     padding : 10px;
-    border: 1px solid ;
+    border: 1px ;
     margin: 10px;
     border-radius: 30px;
     
 }
-
-
-
+.lis {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding : 10px;
+    margin : 10px;
+    min-width: 150px;
+    border-color: cornsilk;
+}
+.fr1{
+    border : 1px ;
+    list-style: none;
+}
+.listContents {
+    padding-left: 30px;
+}
 
 .division {
     border : 1px solid black;
+}
+.grid {
+    padding-top: 50px;
+    display : grid;
+    grid-template-columns: 1fr 3fr;
+    background-color : pink;
+    padding-bottom: 300px;
+}
+.pic {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    padding: 5px;
+}
+.tex {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
 }

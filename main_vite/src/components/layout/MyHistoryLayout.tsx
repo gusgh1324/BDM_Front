@@ -1,5 +1,7 @@
 const MyHistoryLayout = () => {
-  return <div>히스토리 페이지</div>;
+    return(
+<div>My History</div>
+    );
 };
 
 export default MyHistoryLayout;

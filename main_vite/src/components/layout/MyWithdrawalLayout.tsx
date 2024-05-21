@@ -7,7 +7,8 @@ const MyWithdrawalLayout = () => {
 
     // alert 창을 띄웁니다.
     alert(message);
-  
+  };
+
   return (
     <div className="withdrawal_container">
       <div className="withdrawal_container2">

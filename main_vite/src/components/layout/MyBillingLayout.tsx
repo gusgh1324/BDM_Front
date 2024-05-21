@@ -1,5 +1,8 @@
 const MyBillingLayout = () => {
-  return <div>빌링 페이지</div>;
+    return(<div>
+        My Billing
+    </div>
+    );
 };
 
 export default MyBillingLayout;

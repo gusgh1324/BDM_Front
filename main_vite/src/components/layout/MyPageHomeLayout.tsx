@@ -5,7 +5,7 @@ import "./MyPageHomeLayout.css";
 import MySidebarLayout from "./MySidebarLayout";
 import MyProfileLayout from "./MyProfileLayout";
 interface props{
-    topics: string[];
+    topics: string;
 }
 
 const MyPageHomeLayout = ({topics} : props ) => {
