@@ -5,6 +5,7 @@ import MyBillingLayout from "./MyBillingLayout";
 import MyHistoryLayout from "./MyHistoryLayout";
 import MyAccountLayout from "./MyAccountLatout";
 import MyWithdrawalLayout from "./MyWithdrawalLayout";
+import { Link } from "react-router-dom";
 
 interface MyPageHomeLayoutProps {
   topics: string[];
@@ -13,19 +14,20 @@ interface MyPageHomeLayoutProps {
 const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
 
-  const handleTopicClick = (topic: string) => {
+  const handleTopicClick = (topic: string) => {event?.preventDefault();
     setSelectedTopic(topic);
   };
 
   return (
     <div className="sidebar">
+      <div>
       <ul>
         {topics.map((topic, index) => (
-          <li key={index} onClick={() => handleTopicClick(topic)}>
+          <Link to={""}><li key={index} onClick={() => handleTopicClick(topic)}>
             {topic}
-          </li>
+          </li></Link>
         ))}
-      </ul>
+      </ul></div>
       <div className="content">
         {selectedTopic && <RenderContent topic={selectedTopic} />}
       </div>

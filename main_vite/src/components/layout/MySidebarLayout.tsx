@@ -7,6 +7,7 @@ import MyHistoryLayout from "./MyHistoryLayout";
 import MyWithdrawalLayout from "./MyWithdrawalLayout";
 
 
+
 interface MySidebarLayoutProps {
   children?: React.ReactNode;
 }
@@ -20,7 +21,7 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
 
   return (
     <div className="grid">
-      <div className="sidebar">
+      <div className="side">
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child) ? (
             <div onClick={() => handleModeChange(`Mode ${index + 1}`)}>
@@ -28,10 +29,7 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
             </div>
           ) : (child)
         )}
-        
-      </div>
-      
-      <div className="content">
+          <div className="content">
         
         {selectedMode === 'Mode 1' && <MyProfileLayout />}
         {selectedMode === 'Mode 2' && <MyBillingLayout />}
@@ -39,6 +37,9 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
         {selectedMode === 'Mode 4' && <MyHistoryLayout />}
         {selectedMode === 'Mode 5' && <MyWithdrawalLayout />}
       </div>
+      </div>
+      
+    
     </div>
   );
 };

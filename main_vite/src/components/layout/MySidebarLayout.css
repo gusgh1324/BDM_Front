@@ -1,0 +1,11 @@
+
+  
+  .side {
+    background-color: #f0f0f0; /* 사이드바 배경색 (선택사항) */
+    padding: 20px; /* 패딩 (선택사항) */
+  }
+  
+  .content {
+    padding: 20px; /* 패딩 (선택사항) */
+  }
+  
