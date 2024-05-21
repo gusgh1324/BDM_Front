@@ -5,8 +5,10 @@ import Main from "../components/layout/Main";
 import { useImageStore } from "../Store";
 
 const Home = () => {
-  const { setUploadedImage, setAnalysisResult } = useImageStore();
+  const { setUploadedImage } = useImageStore();
   const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [file, setFile] = useState<File | null>(null);
+
   useEffect(() => {
     let dragCount = 0;
 
@@ -37,16 +39,8 @@ const Home = () => {
       const files = Array.from(e.dataTransfer?.files || []);
       if (files.length > 0) {
         const file = files[0];
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const uploadedImage = e.target?.result as string;
-          setUploadedImage(uploadedImage);
-          // 이미지 분석 로직 처리
-          // ...
-          // 분석 결과를 analysisResult 상태에 저장
-          setAnalysisResult("분석 결과 예시");
-        };
-        reader.readAsDataURL(file);
+        setFile(file);
+        setUploadedImage(URL.createObjectURL(file));
       }
     };
 
@@ -61,13 +55,13 @@ const Home = () => {
       window.removeEventListener("dragover", handleDragOver);
       window.removeEventListener("drop", handleDrop);
     };
-  }, [setAnalysisResult, setUploadedImage]);
+  }, [setUploadedImage]);
 
   return (
     <div className="page-container">
       <div className="content-container">
         <Header />
-        <Main />
+        <Main file={file} setFile={setFile} />
         <Footer />
       </div>
       {isDragging && (
