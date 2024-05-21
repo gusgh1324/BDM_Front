@@ -1,5 +1,9 @@
 const MyBillingLayout = () => {
-  return <div>빌링 페이지</div>;
+    return(
+    <div>
+        <h1 className="text-2xl font-bold  mb-6 text-gray-600">My Billing</h1>
+    </div>
+    );
 };
 
 export default MyBillingLayout;

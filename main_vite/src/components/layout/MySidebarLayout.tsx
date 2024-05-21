@@ -1,28 +1,45 @@
-import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import "./MySidebarLayout.css";
+import MyProfileLayout from "./MyProfileLayout";
+import MyBillingLayout from "./MyBillingLayout";
+import MyAccountLayout from "./MyAccountLatout"; // Corrected import
+import MyHistoryLayout from "./MyHistoryLayout";
+import MyWithdrawalLayout from "./MyWithdrawalLayout";
 
-const MySidebarLayout = () => {
+
+
+interface MySidebarLayoutProps {
+  children?: React.ReactNode;
+}
+
+const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
+  const [selectedMode, setSelectedMode] = useState<string | null>(null);
+
+  const handleModeChange = (mode: string) => {
+    setSelectedMode(mode);
+  };
+
   return (
-    <div>
-      <h1>사이드바</h1>
-      <ul>
-        <Link to="/myProfile" className="sidelink">
-          <li className="moknok">Profile</li>
-        </Link>
-        <Link to="/myHistory" className="sidelink">
-          <li className="moknok">History</li>
-        </Link>
-        <Link to="/myBilling" className="sidelink">
-          <li className="moknok">Billing</li>
-        </Link>
-        <Link to="/myAccountt" className="sidelink">
-          <li className="moknok">Account</li>
-        </Link>
-        <Link to="/myWithdrawal" className="sidelink">
-          <li className="moknok">탈퇴하기</li>
-        </Link>
-      </ul>
+    <div className="grid">
+      <div className="side">
+        {React.Children.map(children, (child, index) =>
+          React.isValidElement(child) ? (
+            <div onClick={() => handleModeChange(`Mode ${index + 1}`)}>
+              {child}
+            </div>
+          ) : (child)
+        )}
+          <div className="content">
+        
+        {selectedMode === 'Mode 1' && <MyProfileLayout />}
+        {selectedMode === 'Mode 2' && <MyBillingLayout />}
+        {selectedMode === 'Mode 3' && <MyAccountLayout />}
+        {selectedMode === 'Mode 4' && <MyHistoryLayout />}
+        {selectedMode === 'Mode 5' && <MyWithdrawalLayout />}
+      </div>
+      </div>
+      
+    
     </div>
   );
 };
