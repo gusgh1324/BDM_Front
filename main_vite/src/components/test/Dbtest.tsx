@@ -1,5 +1,3 @@
-// src/components/Dbtest.tsx
-
 import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../../db/user/User";
 
@@ -20,6 +18,7 @@ function Dbtest() {
       try {
         const users = await getAllUsers();
         setData(users);
+        console.log(users);
       } catch (err) {
         setError("데이터를 불러오는 중 에러가 발생했습니다.");
       }
@@ -29,14 +28,12 @@ function Dbtest() {
 
   return (
     <div className="App">
-      <h2>data</h2>
       {error ? (
         <div style={{ color: "red" }}>{error}</div>
       ) : (
-        <div>
+        <div className="border-t-violet-600">
           {data.map((datas) => (
             <div key={datas.mno}>
-              <div>번호: {datas.mno}</div>
               <div>이름: {datas.name}</div>
               <div>이메일: {datas.email}</div>
               <div>
