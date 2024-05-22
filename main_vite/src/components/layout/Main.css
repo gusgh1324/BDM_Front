@@ -42,4 +42,8 @@
   .font_bold {
     font-weight: bold;
   }
+
+  .social_icon {
+    @apply ml-10 p-2 border border-gray-300 rounded-full hover:bg-gray-100 cursor-pointer;
+  }
 }
