@@ -36,7 +36,7 @@ const MyProfileLayout = () => {
                 <input id="address" className="tex w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-400" type="text" />
               </li>
               <li>
-              <button className="bg-pink-300 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded">
             submit
           </button>
               </li>
