@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./MySidebarLayout.css";
 import MyProfileLayout from "./MyProfileLayout";
 import MyBillingLayout from "./MyBillingLayout";
-import MyAccountLayout from "./MyAccountLatout"; // Corrected import
+import MyAccountLayout from "./MyAccountLayout";
 import MyHistoryLayout from "./MyHistoryLayout";
 import MyWithdrawalLayout from "./MyWithdrawalLayout";
-
-
 
 interface MySidebarLayoutProps {
   children?: React.ReactNode;
 }
 
 const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
-  const [selectedMode, setSelectedMode] = useState<string | null>(null);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [selectedMode, setSelectedMode] = useState<string | null>("Mode 1");
+
+  const handleToggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
 
   const handleModeChange = (mode: string) => {
     setSelectedMode(mode);
@@ -21,7 +24,10 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
 
   return (
     <div className="grid">
-      <div className="side">
+      <button className="toggle-btn" onClick={handleToggleSidebar}>
+        {isSidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
+      </button>
+      <div className={`side ${isSidebarVisible ? 'visible' : ''}`}>
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child) ? (
             <div className="sidebarList" onClick={() => handleModeChange(`Mode ${index + 1}`)}>
@@ -29,17 +35,14 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
             </div>
           ) : (child)
         )}
-          <div className="content">
-        
+      </div>
+      <div className="content">
         {selectedMode === 'Mode 1' && <MyProfileLayout />}
         {selectedMode === 'Mode 2' && <MyBillingLayout />}
         {selectedMode === 'Mode 3' && <MyAccountLayout />}
         {selectedMode === 'Mode 4' && <MyHistoryLayout />}
         {selectedMode === 'Mode 5' && <MyWithdrawalLayout />}
       </div>
-      </div>
-      
-    
     </div>
   );
 };

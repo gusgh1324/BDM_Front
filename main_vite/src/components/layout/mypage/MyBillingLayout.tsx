@@ -23,7 +23,7 @@ const MyBillingLayout = () => {
     <div className="flex items-center justify-between">
       <span className="mr-auto">link Link by Stripe</span>
       <Link
-        to=""
+        to="/sub"
         className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded"
       >
         결제하기

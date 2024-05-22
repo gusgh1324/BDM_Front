@@ -1,3 +1,38 @@
-.sidebarList {
+.grid {
+    display: flex;
+  }
   
-}
+  .toggle-btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #f3f3f3;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .side {
+    flex: 0 0 200px;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  .side:not(.visible) {
+    max-height: 0;
+  }
+  
+  .side.visible {
+    max-height: 1000px; /* Adjust this value as needed to fit the content */
+  }
+  
+  .sidebarList {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  

@@ -1,5 +1,4 @@
-// MyPageHomeLayout.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MyProfileLayout from "./MyProfileLayout";
 import MyBillingLayout from "./MyBillingLayout";
 import MyHistoryLayout from "./MyHistoryLayout";
@@ -13,7 +12,7 @@ interface MyPageHomeLayoutProps {
 }
 
 const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [selectedTopic, setSelectedTopic] = useState<string>("프로필");
 
   const handleTopicClick = (topic: string) => {
     event?.preventDefault();
@@ -25,10 +24,9 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
       <div>
         <ul>
           {topics.map((topic, index) => (
-            <Link to={""}>
+            <Link to={""} key={index}>
               <li
                 className="jebaljombakyura"
-                key={index}
                 onClick={() => handleTopicClick(topic)}
               >
                 {topic}

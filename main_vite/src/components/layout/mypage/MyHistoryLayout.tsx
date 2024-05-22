@@ -93,9 +93,10 @@ const MyHistoryLayout = () => {
                   <td>{item.total}</td>
                   <td>{item.status}</td>
                   <td>
-                    <button className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-0.8 px-3 rounded">
-                      자세히보기
-                    </button>
+                  <button className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-0.8 px-3 rounded w-30 w-fixed-width">
+  Details
+</button>
+
                   </td>
                 </tr>
               ))}
