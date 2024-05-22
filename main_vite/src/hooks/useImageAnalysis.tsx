@@ -45,7 +45,7 @@ export const useImageAnalysis = (file: File | null, token: string) => {
           setUploadedImage(e.target?.result as string);
         };
         reader.readAsDataURL(file);
-
+        /**
         // DB의 데이터를 프론트로 불러오는 과정
         const resultResponse = await axios.get(
           "http://localhost:8089/server/api/predictions/latest",
@@ -55,8 +55,7 @@ export const useImageAnalysis = (file: File | null, token: string) => {
             },
           }
         );
-        //
-
+        */
         if (response.status === 200) {
           const eventSource = new EventSource(
             "http://localhost:8089/server/api/predictions/stream"
@@ -74,7 +73,8 @@ export const useImageAnalysis = (file: File | null, token: string) => {
 
           eventSource.addEventListener("complete", (event: MessageEvent) => {
             setStatus("Complete: " + event.data);
-            setAnalysisResult(resultResponse.data);
+            setAnalysisResult(response.data);
+            console.log(response.data);
             eventSource.close();
           });
 

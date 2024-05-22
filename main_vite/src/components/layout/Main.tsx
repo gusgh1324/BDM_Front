@@ -14,7 +14,7 @@ const Main = ({ file, setFile }: MainProps) => {
   const { uploadedImage, analysisResult, setUploadedImage, setAnalysisResult } =
     useImageStore();
   const [animate, setAnimate] = useState(false);
-  const [newTextBoxState, setNewTextBoxState] = useState(false);
+  const [, setNewTextBoxState] = useState(false);
   const token = useToken();
 
   const {
@@ -104,11 +104,11 @@ const Main = ({ file, setFile }: MainProps) => {
           <div className="main-description">
             {analysisResult.map((result, index) => (
               <div key={index}>
-                <h3 className="font_bold">{result.modelName}</h3>
-                <p>림포시스티스병: {result.림포시스티스병}%</p>
-                <p>비브리오: {result.비브리오}%</p>
-                <p>아가미흡충: {result.아가미흡충}%</p>
-                <p>연쇄구균병: {result.연쇄구균병}%</p>
+                <h3 className="font-bold">{result[0]}</h3>
+                <p>림포시스티스병: {result[1].림포시스티스병}%</p>
+                <p>비브리오: {result[1].비브리오}%</p>
+                <p>아가미흡충: {result[1].아가미흡충}%</p>
+                <p>연쇄구균병: {result[1].연쇄구균병}%</p>
               </div>
             ))}
           </div>
