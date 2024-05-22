@@ -55,7 +55,6 @@ export const useImageAnalysis = (file: File | null, token: string) => {
             },
           }
         );
-        setAnalysisResult(resultResponse.data);
         //
 
         if (response.status === 200) {
@@ -75,7 +74,7 @@ export const useImageAnalysis = (file: File | null, token: string) => {
 
           eventSource.addEventListener("complete", (event: MessageEvent) => {
             setStatus("Complete: " + event.data);
-            setAnalysisResult(event.data);
+            setAnalysisResult(resultResponse.data);
             eventSource.close();
           });
 
