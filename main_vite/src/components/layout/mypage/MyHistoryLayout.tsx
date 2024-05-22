@@ -32,6 +32,22 @@ const MyHistoryLayout = () => {
       status: "Paid",
       image: "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA3MTJfMjAw%2FMDAxNTMxMzk2OTU5Mzc2.SKHerChVuCSWbiRSJfa-SZXsZNMoDzZd_L-RREQlFxog.7rghIhRbj7RKAKZDqblbwgdPpV_CYfRg7k8FbNFwcYwg.JPEG.hishiny7%2F%25C4%25C3%25B7%25AF%25B8%25B5%25C2%25FC%25C1%25B6%25B5%25B5%25BE%25C8.jpg&type=sc960_832"
     },
+    
+    {
+      id: 5,
+      date: "2024년 5월 6일",
+      total: "US$22.00",
+      status: "Paid",
+      image: "https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240407_146%2F1712491384777UNT1J_JPEG%2F58124022480934754_1083232035.jpeg&type=sc960_832"
+    },
+    
+    {
+      id: 6,
+      date: "2024년 5월 6일",
+      total: "US$22.00",
+      status: "Paid",
+      image: "https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20240407_146%2F1712491384777UNT1J_JPEG%2F58124022480934754_1083232035.jpeg&type=sc960_832"
+    }
   ]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
