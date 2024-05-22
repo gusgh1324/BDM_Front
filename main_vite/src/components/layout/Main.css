@@ -38,4 +38,8 @@
   .uploaded-image {
     @apply absolute top-0 left-0 w-full h-full object-cover rounded-3xl;
   }
+
+  .font_bold {
+    font-weight: bold;
+  }
 }

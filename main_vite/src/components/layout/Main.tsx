@@ -104,7 +104,7 @@ const Main = ({ file, setFile }: MainProps) => {
           <div className="main-description">
             {analysisResult.map((result, index) => (
               <div key={index}>
-                <h3>{result.modelName}</h3>
+                <h3 className="font_bold">{result.modelName}</h3>
                 <p>림포시스티스병: {result.림포시스티스병}%</p>
                 <p>비브리오: {result.비브리오}%</p>
                 <p>아가미흡충: {result.아가미흡충}%</p>
