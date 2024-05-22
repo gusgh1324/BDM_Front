@@ -23,7 +23,7 @@ const MyBillingLayout = () => {
     <div className="flex items-center justify-between">
       <span className="mr-auto">link Link by Stripe</span>
       <Link
-        to="somewhere"
+        to=""
         className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded"
       >
         결제하기
@@ -31,13 +31,14 @@ const MyBillingLayout = () => {
     </div></div>
     <div className="common billing3">
     <h3 className="font-bold">Invoices</h3>
-        <table>
+        <table><thead>
             <tr >
                 <th className="border-b-2 border-gray-200">Date</th>
                 <th className="border-b-2 border-gray-200">Total</th>
                 <th className="border-b-2 border-gray-200">Status</th>
                 <th className="border-b-2 border-gray-200">Action</th>
-            </tr>
+            </tr></thead>
+            <tbody>
             <tr>
                 <td>2024년 5월 6일</td>
                 <td>US$22.00</td>
@@ -62,6 +63,7 @@ const MyBillingLayout = () => {
                 <td>Paid</td>
                 <td>View invoice</td>
             </tr>
+            </tbody>
         </table>
     </div>
     <div className="common billing4">
@@ -69,7 +71,7 @@ const MyBillingLayout = () => {
     <div className="flex items-center justify-between">
       <span className="mr-auto">Cancel plan</span>
       <Link
-        to="somewhere"
+        to=""
         className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded"
       >
         결제취소

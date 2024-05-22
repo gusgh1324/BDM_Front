@@ -4,9 +4,12 @@ import "./MyAccountLayout.css";
 
 const MyComponent = () => {
   return (
+  <div>
+  <h1 className="text-2xl font-bold  mb-6 text-gray-600">My Account</h1>
     <div className="flex flex-col items-start othername">
+      
       <p className="mb-4">
-        To delee your account, please cancel your Claud Pro subsceiption first.
+        To delete your account, please cancel your Claud Pro subsceiption first.
       </p>
       <Link
         to=""
@@ -14,7 +17,7 @@ const MyComponent = () => {
       >
         Delete Account
       </Link>
-    </div>
+    </div></div>
   );
 };
 
