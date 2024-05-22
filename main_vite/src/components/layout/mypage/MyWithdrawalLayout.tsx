@@ -11,7 +11,7 @@ const MyWithdrawalLayout = () => {
   return (
     <div className="withdrawal_container">
       <div className="withdrawal_container2">
-        <h2 className="mb-6 sub-title">회원 탈퇴하기</h2>
+      <h1 className="text-2xl font-bold  mb-6 text-gray-600">회원탈퇴하기</h1>
         <input
           id="password"
           name="password"
@@ -22,13 +22,13 @@ const MyWithdrawalLayout = () => {
         <div className="mt-4">
           <Link to={"/"}>
             <button
-              className="px-4 py-2 mr-2 font-bold text-white bg-blue-400 rounded hover:bg-blue-600"
+              className="px-4 py-2 mr-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400"
               onClick={handleWithdraw} // 회원탈퇴 버튼 클릭 시 handleWithdraw 함수 호출
             >
               회원탈퇴
             </button>
           </Link>
-          <button className="px-4 py-2 font-bold text-white bg-blue-400 rounded hover:bg-blue-600">
+          <button className="px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400">
             이전
           </button>
         </div>
