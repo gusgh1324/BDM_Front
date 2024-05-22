@@ -70,7 +70,7 @@ const MyBillingLayout = () => {
       <span className="mr-auto">Cancel plan</span>
       <Link
         to="somewhere"
-        className="bg-pink-300 hover:bg-pink-00 text-white font-bold py-2 px-4 rounded"
+        className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded"
       >
         결제취소
       </Link>

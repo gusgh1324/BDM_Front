@@ -10,7 +10,7 @@ const MyComponent = () => {
       </p>
       <Link
         to=""
-        className="w-full max-w-xs px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-200"
+        className="w-full max-w-xs px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400"
       >
         Delete Account
       </Link>
