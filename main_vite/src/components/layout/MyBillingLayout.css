@@ -1,0 +1,30 @@
+.billing1  {
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding:30px;
+    margin : 20px;
+
+}
+.billing2  {
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding:30px;
+    margin : 20px;
+}
+.billing3  {
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding:30px;
+    margin : 20px;
+}
+.billing4  {
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding:30px;
+    margin : 20px;
+}
+
+td {
+    padding: 0px 30px 0px 30px;
+
+}
