@@ -14,7 +14,7 @@ const Main = ({ file, setFile }: MainProps) => {
   const { uploadedImage, analysisResult, setUploadedImage, setAnalysisResult } =
     useImageStore();
   const [animate, setAnimate] = useState(false);
-  const [, setNewTextBoxState] = useState(false);
+  const [newTextBoxState, setNewTextBoxState] = useState(false);
   const token = useToken();
 
   const {
@@ -99,7 +99,14 @@ const Main = ({ file, setFile }: MainProps) => {
         <div className="loading-indicator">이미지 분석 중...</div>
       )}
       {uploadedImage && !loading && Array.isArray(analysisResult) && (
-        <div>
+        <div
+          className={`absolute transition-all duration-1000 delay-1000 overflow-hidden max-h-[70vh] ${
+            newTextBoxState
+              ? "opacity-100 w-full md:w-1/2 translate-x-0"
+              : "opacity-0 w-0 translate-x-full"
+          } md:pl-4`}
+          style={{ right: 0 }}
+        >
           <h2 className="main-title">분석 결과</h2>
           <div className="main-description">
             {analysisResult.map((result, index) => (
