@@ -69,7 +69,7 @@ const Main = ({ file, setFile }: MainProps) => {
           업로드하는 것만으로도 내부적인 질병까지 정확하게 진단받을 수 있습니다.
         </p>
       </div>
-      <div className="mt-8 md:w-1/2 flex justify-center">
+      <div className="flex justify-center mt-8 md:w-1/2">
         <label className="upload-label" htmlFor="file-upload">
           <div className="relative w-full h-full">
             {uploadedImage ? (
@@ -98,17 +98,20 @@ const Main = ({ file, setFile }: MainProps) => {
       {uploadedImage && loading && (
         <div className="loading-indicator">이미지 분석 중...</div>
       )}
-      {uploadedImage && !loading && (
-        <div
-          className={`absolute transition-all duration-1000 delay-1000 overflow-hidden max-h-[70vh] ${
-            newTextBoxState
-              ? "opacity-100 w-full md:w-1/2 translate-x-0"
-              : "opacity-0 w-0 translate-x-full"
-          } md:pl-4`}
-          style={{ right: 0 }}
-        >
+      {uploadedImage && !loading && Array.isArray(analysisResult) && (
+        <div>
           <h2 className="main-title">분석 결과</h2>
-          <p className="main-description">{analysisResult}</p>
+          <div className="main-description">
+            {analysisResult.map((result, index) => (
+              <div key={index}>
+                <h3>{result.modelName}</h3>
+                <p>림포시스티스병: {result.림포시스티스병}%</p>
+                <p>비브리오: {result.비브리오}%</p>
+                <p>아가미흡충: {result.아가미흡충}%</p>
+                <p>연쇄구균병: {result.연쇄구균병}%</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
       {error && <div className="error-message">에러: {error}</div>}

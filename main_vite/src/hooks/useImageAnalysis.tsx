@@ -46,6 +46,18 @@ export const useImageAnalysis = (file: File | null, token: string) => {
         };
         reader.readAsDataURL(file);
 
+        // DB의 데이터를 프론트로 불러오는 과정
+        const resultResponse = await axios.get(
+          "http://localhost:8089/server/api/predictions/latest",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setAnalysisResult(resultResponse.data);
+        //
+
         if (response.status === 200) {
           const eventSource = new EventSource(
             "http://localhost:8089/server/api/predictions/stream"
