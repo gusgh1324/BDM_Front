@@ -15,20 +15,28 @@ interface MyPageHomeLayoutProps {
 const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
 
-  const handleTopicClick = (topic: string) => {event?.preventDefault();
+  const handleTopicClick = (topic: string) => {
+    event?.preventDefault();
     setSelectedTopic(topic);
   };
 
   return (
     <div className="sidebar">
       <div>
-      <ul>
-        {topics.map((topic, index) => (
-          <Link to={""}><li className="jebaljombakyura" key={index} onClick={() => handleTopicClick(topic)}>
-            {topic}
-          </li></Link>
-        ))}
-      </ul></div>
+        <ul>
+          {topics.map((topic, index) => (
+            <Link to={""}>
+              <li
+                className="jebaljombakyura"
+                key={index}
+                onClick={() => handleTopicClick(topic)}
+              >
+                {topic}
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </div>
       <div className="content">
         {selectedTopic && <RenderContent topic={selectedTopic} />}
       </div>
@@ -39,15 +47,35 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
 const RenderContent: React.FC<{ topic: string }> = ({ topic }) => {
   switch (topic) {
     case "프로필":
-      return <div><MyProfileLayout/></div>;
+      return (
+        <div>
+          <MyProfileLayout />
+        </div>
+      );
     case "결제":
-      return <div><MyBillingLayout/></div>;
+      return (
+        <div>
+          <MyBillingLayout />
+        </div>
+      );
     case "계정":
-      return <div><MyAccountLayout/></div>;
+      return (
+        <div>
+          <MyAccountLayout />
+        </div>
+      );
     case "히스토리":
-      return <div><MyHistoryLayout/></div>;
+      return (
+        <div>
+          <MyHistoryLayout />
+        </div>
+      );
     case "회원탈퇴":
-      return <div><MyWithdrawalLayout/></div>;
+      return (
+        <div>
+          <MyWithdrawalLayout />
+        </div>
+      );
     default:
       return null;
   }
