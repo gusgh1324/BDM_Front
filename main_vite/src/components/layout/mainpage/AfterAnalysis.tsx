@@ -6,6 +6,7 @@ import {
   KakaotalkIcon,
   LinkShareIcon,
 } from "../../icon/SocialIcons";
+import { useState } from "react";
 
 interface AfterAnalysisProps {
   loading: boolean;
@@ -21,6 +22,10 @@ const AfterAnalysis = ({
   error,
 }: AfterAnalysisProps) => {
   const { uploadedImage } = useImageStore();
+  const [activeTab, setActiveTab] = useState(0);
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+  };
 
   return (
     <>
@@ -35,15 +40,30 @@ const AfterAnalysis = ({
         >
           <h2 className="main-title">분석 결과</h2>
           <div className="main-description">
-            {analysisResult.map((result, index) => (
-              <div key={index}>
-                <h3 className="font-bold">{result[0]}</h3>
-                <p>림포시스티스병: {result[1].림포시스티스병}%</p>
-                <p>비브리오: {result[1].비브리오}%</p>
-                <p>아가미흡충: {result[1].아가미흡충}%</p>
-                <p>연쇄구균병: {result[1].연쇄구균병}%</p>
-              </div>
-            ))}
+            <div className="flex border-b border-gray-200">
+              {analysisResult.map((result, index) => (
+                <button
+                  key={index}
+                  className={`p-4 focus:outline-none ${
+                    activeTab === index
+                      ? "border-b-2 border-blue-500 text-blue-500"
+                      : "text-gray-500"
+                  }`}
+                  onClick={() => handleTabClick(index)}
+                >
+                  {result[0]}
+                </button>
+              ))}
+            </div>
+            <div className="p-4">
+              <h3 className="font-bold">{analysisResult[activeTab][0]}</h3>
+              <p>
+                림포시스티스병: {analysisResult[activeTab][1].림포시스티스병}%
+              </p>
+              <p>비브리오: {analysisResult[activeTab][1].비브리오}%</p>
+              <p>아가미흡충: {analysisResult[activeTab][1].아가미흡충}%</p>
+              <p>연쇄구균병: {analysisResult[activeTab][1].연쇄구균병}%</p>
+            </div>
           </div>
           <div className="result-url flex items-center">
             <div className="social_icon">
