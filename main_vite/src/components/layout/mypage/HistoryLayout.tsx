@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./MyPageHomeLayout.css";
-import "./MyHistoryDetail";
+import "./HistoryDetail";
 
 const MyHistoryLayout = () => {
   const [items, setItems] = useState([

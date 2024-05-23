@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./MyPageHomeLayout.css";
-import MyProfileLayout from "./MyProfileLayout";
-import MyBillingLayout from "./MyBillingLayout";
-import MyHistoryLayout from "./MyHistoryLayout";
-import MyWithdrawalLayout from "./MyWithdrawalLayout";
-import MyAccountLayout from "./MyAccountLayout";
+import MyProfileLayout from "./ProfileLayout";
+import MyBillingLayout from "./BillingLayout";
+import MyHistoryLayout from "./HistoryLayout";
+import MyWithdrawalLayout from "./WithdrawalLayout";
+import MyAccountLayout from "./AccountLayout";
 
 interface MySidebarLayoutProps {
   children?: React.ReactNode;

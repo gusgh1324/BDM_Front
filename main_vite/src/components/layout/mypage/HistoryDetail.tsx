@@ -1,6 +1,6 @@
 
 import "./MyPageHomeLayout.css";
-import "./MyHistoryDetail";
+import "./HistoryDetail";
 
 const MyHistoryDetail= () => {
     return(

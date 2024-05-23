@@ -133,7 +133,7 @@ const Main = ({ file, setFile }: MainProps) => {
       </div>
 
       {uploadedImage && loading && (
-        <div className="loading-container flex flex-col items-center">
+        <div className="loading-container absolute">
           <img src="LoadingSpinner.gif" alt="Loading Spinner" />
           <div className="loading-text mt-4">Loading... {progress}%</div>
         </div>
