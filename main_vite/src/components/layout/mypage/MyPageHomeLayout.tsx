@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MyProfileLayout from "./MyProfileLayout";
 import MyBillingLayout from "./MyBillingLayout";
 import MyHistoryLayout from "./MyHistoryLayout";
-import MyAccountLayout from "./MyAccountLatout";
+import MyAccountLayout from "./MyAccountLayout";
 import MyWithdrawalLayout from "./MyWithdrawalLayout";
 import { Link } from "react-router-dom";
 import "./MyPageHomeLayout.css";
@@ -22,7 +22,7 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
   return (
     <div className="sidebar">
       <div>
-        <ul>
+        <ul className="margin">
           {topics.map((topic, index) => (
             <Link to={""} key={index}>
               <li
