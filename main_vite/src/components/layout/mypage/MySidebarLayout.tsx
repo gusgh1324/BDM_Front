@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./MySidebarLayout.css";
 import MyProfileLayout from "./MyProfileLayout";
 import MyBillingLayout from "./MyBillingLayout";
-import MyAccountLayout from "./MyAccountLayout";
 import MyHistoryLayout from "./MyHistoryLayout";
 import MyWithdrawalLayout from "./MyWithdrawalLayout";
+import MyAccountLayout from "./MyAccountLayout";
 
 interface MySidebarLayoutProps {
   children?: React.ReactNode;
@@ -13,13 +13,15 @@ interface MySidebarLayoutProps {
 const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState<string | null>("Mode 1");
+  const [activeItem, setActiveItem] = useState<number | null>(0);
 
   const handleToggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
-  const handleModeChange = (mode: string) => {
+  const handleModeChange = (mode: string, index: number) => {
     setSelectedMode(mode);
+    setActiveItem(index);
   };
 
   return (
@@ -30,7 +32,10 @@ const MySidebarLayout = ({ children }: MySidebarLayoutProps) => {
       <div className={`side ${isSidebarVisible ? 'visible' : ''}`}>
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child) ? (
-            <div className="sidebarList" onClick={() => handleModeChange(`Mode ${index + 1}`)}>
+            <div
+              className={`sidebarList ${activeItem === index ? 'active' : ''}`}
+              onClick={() => handleModeChange(`Mode ${index + 1}`, index)}
+            >
               {child}
             </div>
           ) : (child)

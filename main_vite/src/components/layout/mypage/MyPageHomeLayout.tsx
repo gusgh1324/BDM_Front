@@ -22,7 +22,7 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
   return (
     <div className="sidebar">
       <div>
-        <ul>
+        <ul className="margin">
           {topics.map((topic, index) => (
             <Link to={""} key={index}>
               <li
