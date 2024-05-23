@@ -43,8 +43,8 @@ const Main = ({ file, setFile }: MainProps) => {
   };
 
   const saveResultToUrl = useCallback(
-    (result: string) => {
-      const encodedResult = encodeURIComponent(JSON.stringify(result));
+    (parsedResult: string) => {
+      const encodedResult = encodeURIComponent(JSON.stringify(parsedResult));
       navigate(`?analysisResult=${encodedResult}`, { replace: true });
     },
     [navigate]
@@ -54,9 +54,9 @@ const Main = ({ file, setFile }: MainProps) => {
     if (!loading && parsedResult) {
       setAnalysisResult(parsedResult);
       setAnimate(true);
-      saveResultToUrl(result!);
+      saveResultToUrl(parsedResult);
     }
-  }, [loading, parsedResult, setAnalysisResult, saveResultToUrl, result]);
+  }, [loading, parsedResult, setAnalysisResult, saveResultToUrl]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
