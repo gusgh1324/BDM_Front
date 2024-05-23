@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./MyAccountLayout.css";
+import "./MyPageHomeLayout.css";
 
 const MyComponent = () => {
   return (
@@ -13,7 +13,7 @@ const MyComponent = () => {
       </p>
       <Link
         to=""
-        className="w-full max-w-xs px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400"
+        className="w-full max-w-xs px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400 text-center"
       >
         Delete Account
       </Link>

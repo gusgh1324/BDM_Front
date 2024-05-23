@@ -1,13 +1,12 @@
-import "./MyBillingLayout.css";
+import "./MyPageHomeLayout.css";
 import { Link } from "react-router-dom";
-import React from "react";
 
 const MyBillingLayout = () => {
   return (
     <div>
       <h1 className="mb-6 text-2xl font-bold text-gray-600">My Billing</h1>
 
-      <div className="common billing1">
+      <div className="billing">
         <h3 className="font-bold">Thanks for being a Pro</h3>
         <ul>
           <li>Level up your Claude usage</li>
@@ -16,7 +15,7 @@ const MyBillingLayout = () => {
           <li>Early access to newe features</li>
         </ul>
       </div>
-      <div className="common billing2">
+      <div className="billing">
         <h3 className="font-bold">Payment</h3>
         <div className="flex items-center justify-between">
           <span className="mr-auto">link Link by Stripe</span>
@@ -28,7 +27,7 @@ const MyBillingLayout = () => {
           </Link>
         </div>
       </div>
-      <div className="common billing3">
+      <div className="billing">
         <h3 className="font-bold">Invoices</h3>
         <table>
           <thead>
@@ -67,7 +66,7 @@ const MyBillingLayout = () => {
           </tbody>
         </table>
       </div>
-      <div className="common billing4">
+      <div className="billing">
         <h3 className="font-bold">Cancelation</h3>
         <div className="flex items-center justify-between">
           <span className="mr-auto">Cancel plan</span>

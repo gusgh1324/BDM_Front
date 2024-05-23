@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import MyProfileLayout from "./MyProfileLayout";
-import MyBillingLayout from "./MyBillingLayout";
-import MyHistoryLayout from "./MyHistoryLayout";
-import MyAccountLayout from "./MyAccountLayout";
-import MyWithdrawalLayout from "./MyWithdrawalLayout";
+import MyProfileLayout from "./ProfileLayout";
+import MyBillingLayout from "./BillingLayout";
+import MyHistoryLayout from "./HistoryLayout";
+import MyAccountLayout from "./AccountLayout";
+import MyWithdrawalLayout from "./WithdrawalLayout";
 import { Link } from "react-router-dom";
 import "./MyPageHomeLayout.css";
 
