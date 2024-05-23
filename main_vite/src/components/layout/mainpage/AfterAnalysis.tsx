@@ -7,6 +7,7 @@ import {
   LinkShareIcon,
 } from "../../icon/SocialIcons";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface AfterAnalysisProps {
   loading: boolean;
@@ -23,8 +24,19 @@ const AfterAnalysis = ({
 }: AfterAnalysisProps) => {
   const { uploadedImage } = useImageStore();
   const [activeTab, setActiveTab] = useState(0);
+  const navigate = useNavigate();
+
   const handleTabClick = (index: number) => {
     setActiveTab(index);
+  };
+
+  const handleLinkShareClick = () => {
+    const currentUrl = new URL(window.location.href);
+    const params = new URLSearchParams(currentUrl.search);
+    const analysisResultParam = params.get("analysisResult");
+    if (analysisResultParam) {
+      navigate(`/history?analysisResult=${analysisResultParam}`);
+    }
   };
 
   return (
@@ -69,9 +81,7 @@ const AfterAnalysis = ({
             <div className="social_icon">
               <LinkShareIcon
                 className="w-12 h-12"
-                onClick={() =>
-                  navigator.clipboard.writeText(window.location.href)
-                }
+                onClick={handleLinkShareClick}
                 src={""}
                 alt={""}
               />

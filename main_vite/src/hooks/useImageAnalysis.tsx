@@ -63,6 +63,7 @@ export const useImageAnalysis = (file: File | null, token: string) => {
 
           eventSource.addEventListener("progress", (event: MessageEvent) => {
             setProgress((prev) => [...prev, event.data]);
+            console.log(event.data);
           });
 
           eventSource.addEventListener("error", (event: MessageEvent) => {
@@ -73,9 +74,14 @@ export const useImageAnalysis = (file: File | null, token: string) => {
 
           eventSource.addEventListener("complete", (event: MessageEvent) => {
             setStatus("Complete: " + event.data);
-            setAnalysisResult(response.data);
-            console.log(response.data);
+            console.log(event.data);
+          });
+
+          eventSource.addEventListener("result", (event: MessageEvent) => {
+            setAnalysisResult(event.data);
+            console.log(event.data);
             eventSource.close();
+            setLoading(false);
           });
 
           return () => {
@@ -83,11 +89,11 @@ export const useImageAnalysis = (file: File | null, token: string) => {
           };
         } else {
           setError("이미지 분석을 시작할 수 없습니다.");
+          setLoading(false);
         }
       } catch (error) {
         setError("이미지를 업로드하고 분석하는 중에 오류가 발생했습니다.");
         console.error("이미지 업로드 및 분석 실패:", error);
-      } finally {
         setLoading(false);
       }
     };

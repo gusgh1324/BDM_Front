@@ -46,4 +46,12 @@
   .social_icon {
     @apply ml-10 p-2 border border-gray-300 rounded-full hover:bg-gray-100 cursor-pointer;
   }
+
+  .loading-container {
+    @apply ml-24 flex flex-col items-center justify-center h-60 w-60;
+  }
+  
+  .loading-text {
+    @apply text-2xl text-gray-700 mt-4;
+  }
 }
