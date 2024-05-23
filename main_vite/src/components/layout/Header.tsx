@@ -26,9 +26,6 @@ const Header = memo(() => {
             <Link to={"/disease"}>
               <div className="nav-link">질병정보</div>
             </Link>
-            <Link to={"/api"}>
-              <div className="nav-link">도구 및 API</div>
-            </Link>
             <Link to={"/sub"}>
               <div className="nav-link">구독</div>
             </Link>
@@ -60,9 +57,6 @@ const Header = memo(() => {
           <div className="lg:hidden">
             <Link to={"/disease"}>
               <div className="nav-link">질병정보</div>
-            </Link>
-            <Link to={"/api"}>
-              <div className="nav-link">도구 및 API</div>
             </Link>
             <Link to={"/sub"}>
               <div className="nav-link">구독</div>

@@ -77,7 +77,7 @@ const AfterAnalysis = ({
               <p>연쇄구균병: {analysisResult[activeTab][1].연쇄구균병}%</p>
             </div>
           </div>
-          <div className="result-url flex items-center">
+          <div className="flex items-center result-url">
             <div className="social_icon">
               <LinkShareIcon
                 className="w-12 h-12"

@@ -1,5 +1,5 @@
 const ApiLayout = () => {
-  return <div></div>;
+  return <div>구현중 입니다...!</div>;
 };
 
 export default ApiLayout;
