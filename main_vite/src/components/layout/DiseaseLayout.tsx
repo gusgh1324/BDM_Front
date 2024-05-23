@@ -9,13 +9,14 @@ interface DiseaseInfo {
 interface ListItemProps {
   title: string;
   description: string;
+  index: number;
 }
 
-const ListItem = ({ title, description }: ListItemProps) => {
+const ListItem = ({ title, description, index }: ListItemProps) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
   return (
-    <div className="list-item">
+    <div className={`list-item ${index < 4 ? "special-style" : ""}`}>
       <h2 onClick={() => setIsDescriptionVisible(!isDescriptionVisible)}>
         {title}
       </h2>
@@ -43,6 +44,7 @@ const DiseaseLayout = ({ diseaseInfo }: DiseaseLayoutProps) => {
           key={index}
           title={info.title}
           description={info.description}
+          index={index}
         />
       ))}
 
@@ -54,6 +56,7 @@ const DiseaseLayout = ({ diseaseInfo }: DiseaseLayoutProps) => {
           <img src="/국수과.jpg" alt="국립수산과학원_국가수산물질병정보" />
         </a>
         <a
+          className="im2"
           href="https://nfqs.go.kr/PreventionMgM/index1.jsp"
           onClick={handleImageClick}
         >

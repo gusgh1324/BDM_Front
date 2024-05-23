@@ -4,6 +4,7 @@ import "./Main.css";
 import { useImageStore } from "../../Store";
 import { useImageAnalysis } from "../../hooks/useImageAnalysis";
 import useToken from "../../hooks/useToken";
+import useDataParser from "../../hooks/useDataParser";
 import BeforeAnalysis from "./mainpage/BeforeAnalysis";
 import AfterAnalysis from "./mainpage/AfterAnalysis";
 import CloudUploadIcon from "../icon/CloudUploadIcon";
@@ -21,12 +22,17 @@ const Main = ({ file, setFile }: MainProps) => {
   const token = useToken();
   const navigate = useNavigate();
   const location = useLocation();
+  const [progress, setProgress] = useState<string>("0.0");
 
   const {
     analysisResult: result,
     loading,
     error,
+    progress: analysisProgress,
+    status: analysisStatus,
   } = useImageAnalysis(file, token!);
+
+  const parsedResult = useDataParser(result);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -45,12 +51,12 @@ const Main = ({ file, setFile }: MainProps) => {
   );
 
   useEffect(() => {
-    if (!loading && result) {
-      setAnalysisResult(result);
+    if (!loading && parsedResult) {
+      setAnalysisResult(parsedResult);
       setAnimate(true);
-      saveResultToUrl(result);
+      saveResultToUrl(result!);
     }
-  }, [loading, result, setAnalysisResult, saveResultToUrl]);
+  }, [loading, parsedResult, setAnalysisResult, saveResultToUrl, result]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -69,6 +75,23 @@ const Main = ({ file, setFile }: MainProps) => {
       return () => clearTimeout(timeout);
     }
   }, [animate]);
+
+  useEffect(() => {
+    if (analysisProgress && analysisProgress.length > 0) {
+      const factor = 7.25;
+      const currentProgress = Math.min(
+        99,
+        analysisProgress.length * factor
+      ).toFixed(1);
+      setProgress(currentProgress);
+    }
+  }, [analysisProgress]);
+
+  useEffect(() => {
+    if (analysisStatus) {
+      setProgress("100.0");
+    }
+  }, [analysisStatus]);
 
   return (
     <div className="relative flex flex-col mt-10 md:flex-row">
@@ -110,7 +133,10 @@ const Main = ({ file, setFile }: MainProps) => {
       </div>
 
       {uploadedImage && loading && (
-        <div className="loading-indicator">이미지 분석 중...</div>
+        <div className="loading-container flex flex-col items-center">
+          <img src="LoadingSpinner.gif" alt="Loading Spinner" />
+          <div className="loading-text mt-4">Loading... {progress}%</div>
+        </div>
       )}
 
       {uploadedImage && !loading && (
