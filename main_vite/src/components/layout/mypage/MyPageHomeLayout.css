@@ -24,3 +24,84 @@
         margin-bottom: 70px;
     }
 }
+
+/* Account */
+.othername {
+  border: 1px solid pink;
+  border-radius: 20px;
+  padding : 30px;
+  margin : 10px;
+} 
+
+/* Billing */
+.billing  {
+  border: 1px solid pink;
+  border-radius: 10px;
+  padding:30px;
+  margin : 20px;
+}
+td {
+  padding: 0px 30px 0px 30px;
+
+}
+
+/* History */
+.pyo  {
+  border: 1px solid pink;
+  border-radius: 10px;
+  padding:30px;
+  margin : 20px;
+}
+
+.junche {
+  padding-top: 20px;
+}
+
+/* Sidebar */
+.grid {
+  display: flex;
+}
+
+.toggle-btn {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #f3f3f3;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.side {
+  flex: 0 0 200px;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.side:not(.visible) {
+  max-height: 0;
+}
+
+.side.visible {
+  max-height: 1000px; /* Adjust this value as needed to fit the content */
+}
+
+.sidebarList {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Withdrawal */
+.withdrawal_container{
+  display: flex;
+}
+
+.withdrawal_container2 {
+  flex:1;
+}
+

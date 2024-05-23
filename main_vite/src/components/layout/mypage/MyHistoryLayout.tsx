@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./MyHistoryLayout.css";
+import "./MyPageHomeLayout.css";
+import "./MyHistoryDetail";
 
 const MyHistoryLayout = () => {
   const [items, setItems] = useState([
@@ -93,9 +94,11 @@ const MyHistoryLayout = () => {
                   <td>{item.total}</td>
                   <td>{item.status}</td>
                   <td>
-                  <button className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-0.8 px-3 rounded w-30 w-fixed-width">
+                  <Link to={"./MyHistoryDetail"} className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-0.8 px-3 rounded w-30 w-fixed-width">
+                  
+                  
   Details
-</button>
+</Link>
 
                   </td>
                 </tr>

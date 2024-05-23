@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./MySidebarLayout.css";
+import "./MyPageHomeLayout.css";
 import MyProfileLayout from "./MyProfileLayout";
 import MyBillingLayout from "./MyBillingLayout";
 import MyHistoryLayout from "./MyHistoryLayout";
