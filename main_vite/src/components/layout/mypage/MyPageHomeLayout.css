@@ -15,3 +15,12 @@
 .content {
     margin-left: 50px;
 }
+@media(max-width:800px){
+    .sidebar {
+        display: block;
+    
+    }
+    .margin {
+        margin-bottom: 70px;
+    }
+}
