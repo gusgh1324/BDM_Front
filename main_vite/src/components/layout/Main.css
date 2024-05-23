@@ -48,7 +48,7 @@
   }
 
   .loading-container {
-    @apply ml-24 flex flex-col items-center justify-center h-60 w-60;
+    @apply md:right-40 ml-28 flex flex-col items-center justify-center h-60 w-60;
   }
   
   .loading-text {
