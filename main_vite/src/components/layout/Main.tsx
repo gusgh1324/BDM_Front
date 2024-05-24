@@ -5,6 +5,7 @@ import { useImageStore } from "../../Store";
 import { useImageAnalysis } from "../../hooks/useImageAnalysis";
 import useToken from "../../hooks/useToken";
 import useDataParser from "../../hooks/useDataParser";
+import { useSaveAnalysis } from "../../hooks/useSaveAnalysis";
 import BeforeAnalysis from "./mainpage/BeforeAnalysis";
 import AfterAnalysis from "./mainpage/AfterAnalysis";
 import CloudUploadIcon from "../icon/CloudUploadIcon";
@@ -34,6 +35,12 @@ const Main = ({ file, setFile }: MainProps) => {
 
   const parsedResult = useDataParser(result);
 
+  const {
+    saveAnalysis,
+    loading: saveLoading,
+    error: saveError,
+  } = useSaveAnalysis();
+
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -55,8 +62,19 @@ const Main = ({ file, setFile }: MainProps) => {
       setAnalysisResult(parsedResult);
       setAnimate(true);
       saveResultToUrl(parsedResult);
+      if (file && token) {
+        saveAnalysis(file, parsedResult, token);
+      }
     }
-  }, [loading, parsedResult, setAnalysisResult, saveResultToUrl]);
+  }, [
+    loading,
+    parsedResult,
+    setAnalysisResult,
+    saveResultToUrl,
+    saveAnalysis,
+    file,
+    token,
+  ]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -147,6 +165,9 @@ const Main = ({ file, setFile }: MainProps) => {
           error={error}
         />
       )}
+
+      {saveError && <div className="error-message">저장 에러: {saveError}</div>}
+      {saveLoading && <div className="loading-message">저장 중...</div>}
     </div>
   );
 };
