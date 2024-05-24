@@ -18,17 +18,30 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
     event?.preventDefault();
     setSelectedTopic(topic);
   };
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
   return (
     <div className="sidebar">
-      <div>
+      <div><li className=" text-lg font-semibold text-center py-4.5 p-4 pl-5 border border-pink-300 bg-pink-300 text-gray200 list-none ">Menu<button
+        className=" text-lg font-semibold mb-4"
+        onClick={toggleSidebar}
+      >
+       
+      </button></li>
+
+      
         <ul className="margin">
+          
           {topics.map((topic, index) => (
             <Link to={""} key={index}>
               <li
-                className="jebaljombakyura"
+                className="jebaljombakyura py-2 hover:bg-gray-700 cursor-finger "
                 onClick={() => handleTopicClick(topic)}
-              >
+              > 
+              
                 {topic}
               </li>
             </Link>
@@ -38,6 +51,7 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
       <div className="content">
         {selectedTopic && <RenderContent topic={selectedTopic} />}
       </div>
+      
     </div>
   );
 };
