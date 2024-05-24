@@ -26,7 +26,7 @@ export const useSaveAnalysis = (): SaveAnalysisResult => {
         formData.append("analysisResult", JSON.stringify(analysisResult));
 
         const response = await axios.post(
-          "http://localhost:8089/api/saveAnalysis", //Todo.경로 수정 필요
+          "http://localhost:8089/server/api/predictions/save_analyze", //Todo.경로 수정 필요
           formData,
           {
             headers: {
