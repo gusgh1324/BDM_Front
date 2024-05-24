@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MyProfileLayout from "./ProfileLayout";
 import MyBillingLayout from "./BillingLayout";
 import MyHistoryLayout from "./HistoryLayout";
-import MyAccountLayout from "./AccountLayout";
+import Calendar from "./Calendar";
 import MyWithdrawalLayout from "./WithdrawalLayout";
 import { Link } from "react-router-dom";
 import "./MyPageHomeLayout.css";
@@ -70,10 +70,10 @@ const RenderContent: React.FC<{ topic: string }> = ({ topic }) => {
           <MyBillingLayout />
         </div>
       );
-    case "계정":
+    case "달력":
       return (
         <div>
-          <MyAccountLayout />
+          <Calendar />
         </div>
       );
     case "히스토리":

@@ -4,7 +4,7 @@ import Footer from "../components/layout/Footer";
 import MyPageHomeLayout from "../components/layout/mypage/MyPageHomeLayout";
 
 const MyPageHome = () => {
-  const topics = ["프로필", "결제", "계정", "히스토리", "회원탈퇴"];
+  const topics = ["프로필", "결제", "달력", "히스토리", "회원탈퇴"];
 
   return (
     <div className="page-container">
