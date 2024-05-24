@@ -4,7 +4,7 @@ import "./HistoryDetail";
 
 const MyHistoryDetail= () => {
     return(
-        <></>
+        <div>History Detail</div>
     );
 };
 
