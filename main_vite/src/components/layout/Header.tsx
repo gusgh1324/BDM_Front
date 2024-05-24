@@ -1,7 +1,6 @@
 import { useState, memo } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import LoginToggle from "../test/LoginToggle";
 import AuthButtons from "../ui/AuthButtons";
 import UserProfile from "../ui/UserProfile";
 import { useStore } from "../../Store"; // Zustand store 가져오기
@@ -33,7 +32,6 @@ const Header = memo(() => {
               <div className="nav-link">지도</div>
             </Link>
           </div>
-          <LoginToggle />
         </div>
         <div className="button-container">
           {!isLoggedIn ? <AuthButtons /> : <UserProfile />}
