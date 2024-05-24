@@ -9,11 +9,17 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface SaveAnalysisResponse {
+  fileUrl: string;
+  analysisResult: string;
+}
+
 interface AfterAnalysisProps {
   loading: boolean;
   analysisResult: string | null;
   newTextBoxState: boolean;
   error: string | null;
+  savedData: SaveAnalysisResponse | null; // savedData 속성 추가
 }
 
 const AfterAnalysis = ({
@@ -21,6 +27,7 @@ const AfterAnalysis = ({
   analysisResult,
   newTextBoxState,
   error,
+  savedData,
 }: AfterAnalysisProps) => {
   const { uploadedImage } = useImageStore();
   const [activeTab, setActiveTab] = useState(0);
@@ -31,11 +38,10 @@ const AfterAnalysis = ({
   };
 
   const handleLinkShareClick = () => {
-    const currentUrl = new URL(window.location.href);
-    const params = new URLSearchParams(currentUrl.search);
-    const analysisResultParam = params.get("analysisResult");
-    if (analysisResultParam) {
-      navigate(`/history?analysisResult=${analysisResultParam}`);
+    if (savedData) {
+      navigate(
+        `/history?fileUrl=${encodeURIComponent(savedData.fileUrl)}&analysisResult=${encodeURIComponent(savedData.analysisResult)}`
+      );
     }
   };
 
@@ -77,7 +83,7 @@ const AfterAnalysis = ({
               <p>연쇄구균병: {analysisResult[activeTab][1].연쇄구균병}%</p>
             </div>
           </div>
-          <div className="flex items-center result-url">
+          <div className="result-url flex items-center">
             <div className="social_icon">
               <LinkShareIcon
                 className="w-12 h-12"

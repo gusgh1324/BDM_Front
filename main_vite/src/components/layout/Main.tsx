@@ -39,6 +39,7 @@ const Main = ({ file, setFile }: MainProps) => {
     saveAnalysis,
     loading: saveLoading,
     error: saveError,
+    data: savedData, // 데이터를 받아옴
   } = useSaveAnalysis();
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,6 +157,16 @@ const Main = ({ file, setFile }: MainProps) => {
           <div className="loading-text mt-4">Loading... {progress}%</div>
         </div>
       )}
+      {saveError && (
+        <div className="loading-container absolute">
+          <div className="loading-text mt-4">저장 에러: {saveError}</div>
+        </div>
+      )}
+      {saveLoading && (
+        <div className="loading-container absolute">
+          <div className="loading-text mt-4">저장 중...</div>
+        </div>
+      )}
 
       {uploadedImage && !loading && (
         <AfterAnalysis
@@ -163,11 +174,9 @@ const Main = ({ file, setFile }: MainProps) => {
           analysisResult={analysisResult}
           newTextBoxState={newTextBoxState}
           error={error}
+          savedData={savedData} // savedData 전달
         />
       )}
-
-      {saveError && <div className="error-message">저장 에러: {saveError}</div>}
-      {saveLoading && <div className="loading-message">저장 중...</div>}
     </div>
   );
 };

@@ -1,9 +1,16 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
+interface SaveAnalysisResponse {
+  userId: number;
+  fileUrl: string;
+  analysisResult: string;
+}
+
 interface SaveAnalysisResult {
   loading: boolean;
   error: string | null;
+  data: SaveAnalysisResponse | null;
   saveAnalysis: (
     file: File,
     analysisResult: string | null,
@@ -14,6 +21,7 @@ interface SaveAnalysisResult {
 export const useSaveAnalysis = (): SaveAnalysisResult => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<SaveAnalysisResponse | null>(null);
 
   const saveAnalysis = useCallback(
     async (file: File, analysisResult: string | null, token: string) => {
@@ -36,6 +44,7 @@ export const useSaveAnalysis = (): SaveAnalysisResult => {
           }
         );
         console.log("Save analysis response:", response.data);
+        setData(response.data);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         setError(error.message);
@@ -46,5 +55,5 @@ export const useSaveAnalysis = (): SaveAnalysisResult => {
     []
   );
 
-  return { loading, error, saveAnalysis };
+  return { loading, error, data, saveAnalysis };
 };
