@@ -10,7 +10,7 @@ const MyProfileLayout = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <li className="profilelist">
-                <label htmlFor="file-input" className="block w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-300">
+                <label htmlFor="file-input" className="block w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer hover:bg-gray-400">
                   <input id="file-input" className="hidden" type="file" />
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 16a6 6 0 100-12 6 6 0 000 12zm-1-9a1 1 0 00-2 0v3H5a1 1 0 000 2h2v3a1 1 0 002 0v-3h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
@@ -36,7 +36,7 @@ const MyProfileLayout = () => {
                 <input id="address" className="tex w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-400" type="text" />
               </li>
               <li>
-              <button className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
             submit
           </button>
               </li>

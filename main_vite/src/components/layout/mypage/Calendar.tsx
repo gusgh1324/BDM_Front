@@ -11,7 +11,7 @@ const Calendar = () => {
   ];
 
   return (
-    <div className="max-w-3xl p-4 mx-auto border border-gray-300 rounded-lg">
+    <div className="max-w-3xl p-4 mx-auto border border-pink-300 rounded-lg">
       <h2 className="mb-4 text-3xl font-bold text-center">May 2024</h2>
       <div className="grid grid-cols-7 gap-4">
         {daysOfWeek.map((day, index) => (

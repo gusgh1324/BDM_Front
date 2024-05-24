@@ -28,8 +28,8 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
   };
   return (
     <div className="sidebar">
-      <div><li className=" text-lg font-semibold text-center py-4.5 p-4 pl-5 border border-pink-300 bg-pink-300 text-gray200 list-none ">Menu<button
-        className=" text-lg font-semibold mb-4"
+      <div><li className=" text-lg font-semibold text-center py-2 p-4 pl-5 border border-pink-300 bg-pink-300 text-gray200 list-none border-b-1 border-white ">Menu<button
+        className="text-lg font-semibold mb-4"
         onClick={toggleSidebar}
       >
        
@@ -41,7 +41,7 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
           {topics.map((topic, index) => (
             <Link to={""} key={index}>
               <li
-                className={`jebaljombakyura py-2 hover:bg-gray-700 cursor-finger ${isSelected(topic)}`}
+                className={`jebaljombakyura py-2 hover:bg-gray-300 cursor-finger hover:text-black ${isSelected(topic)}`}
                 onClick={() => handleTopicClick(topic)}
               > 
               

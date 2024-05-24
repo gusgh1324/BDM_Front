@@ -21,7 +21,7 @@ const MyBillingLayout = () => {
           <span className="mr-auto">link Link by Stripe</span>
           <Link
             to="/sub"
-            className="px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400"
+            className="px-4 py-2 font-bold text-white bg-pink-400 rounded hover:bg-pink-500"
           >
             결제하기
           </Link>
@@ -72,7 +72,7 @@ const MyBillingLayout = () => {
           <span className="mr-auto">Cancel plan</span>
           <Link
             to=""
-            className="px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400"
+            className="px-4 py-2 font-bold text-white bg-pink-400 rounded hover:bg-pink-500"
           >
             결제취소
           </Link>

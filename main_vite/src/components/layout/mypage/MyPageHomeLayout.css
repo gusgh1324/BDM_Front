@@ -5,25 +5,26 @@
 .sidebar {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  
 }
 
 .jebaljombakyura {
   padding: 10px;
   padding-left: 20px;
-  border:  rgb(46, 54, 67);
-  border-color:  rgb(46, 54, 67);
+  border-bottom: solid 1px;
+  border-color:  pink;
   background-color: rgb(46, 54, 67);
-  color: #f3f3f3;
+  color: white;
  
-
   min-width: 200px;
   @apply
   list-none
-  bg-gray-800 text-white 
+  bg-gray-500 text-white 
 }
 
 .content {
     margin-left: 50px;
+    
 }
 @media(max-width:800px){
     .sidebar {
@@ -36,11 +37,13 @@
    
     
     .margin {
-        margin-bottom: 70px;
+        margin-bottom: 60px;
+        
         
     }
+    
     .content {
-      margin-left: 10px;
+      margin-left: 0px;
    }}
 
 /* Account */
@@ -116,7 +119,7 @@ td {
   background-color: lightblue; /* 여기에 색상을 원하는 대로 지정하세요 */
 }
 .selected {
-  background-color: gray; /* 선택된 메뉴의 색깔 지정 */
+  background-color: rgb(236, 72, 153); /* 선택된 메뉴의 색깔 지정 */
   color: white; /* 선택된 메뉴의 텍스트 색깔 지정 */
 }
 

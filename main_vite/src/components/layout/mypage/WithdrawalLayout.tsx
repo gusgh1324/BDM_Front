@@ -23,13 +23,13 @@ const MyWithdrawalLayout = () => {
         <div className="mt-4">
           <Link to={"/"}>
             <button
-              className="px-4 py-2 mr-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400"
+              className="px-4 py-2 mr-2 font-bold text-white bg-pink-400 rounded hover:bg-pink-500"
               onClick={handleWithdraw} // 회원탈퇴 버튼 클릭 시 handleWithdraw 함수 호출
             >
               회원탈퇴
             </button>
           </Link>
-          <button className="px-4 py-2 font-bold text-white bg-pink-300 rounded hover:bg-pink-400">
+          <button className="px-4 py-2 font-bold text-white bg-pink-400 rounded hover:bg-pink-500">
             이전
           </button>
         </div>

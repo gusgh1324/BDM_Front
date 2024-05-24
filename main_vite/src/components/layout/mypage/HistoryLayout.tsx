@@ -94,7 +94,7 @@ const MyHistoryLayout = () => {
                   <td>{item.total}</td>
                   <td>{item.status}</td>
                   <td>
-                  <Link to={"./MyHistoryDetail"} className="bg-pink-300 hover:bg-pink-400 text-white font-bold py-0.8 px-3 rounded w-30 w-fixed-width">
+                  <Link to={"./MyHistoryDetail"} className="bg-pink-400 hover:bg-pink-500 text-white font-bold py-0.8 px-3 rounded w-30 w-fixed-width">
                   
                   
   Details
