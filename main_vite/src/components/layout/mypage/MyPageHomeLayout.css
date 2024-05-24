@@ -34,14 +34,14 @@
       display : block;
     }
    
-    }
+    
     .margin {
         margin-bottom: 70px;
         
     }
     .content {
       margin-left: 10px;
-   }
+   }}
 
 /* Account */
 .othername {
@@ -114,5 +114,9 @@ td {
 }
 .selectedMode {
   background-color: lightblue; /* 여기에 색상을 원하는 대로 지정하세요 */
+}
+.selected {
+  background-color: gray; /* 선택된 메뉴의 색깔 지정 */
+  color: white; /* 선택된 메뉴의 텍스트 색깔 지정 */
 }
 

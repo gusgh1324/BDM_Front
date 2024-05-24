@@ -23,6 +23,9 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
+  const isSelected = (topic: string) => {
+    return selectedTopic === topic ? 'selected' : '';
+  };
   return (
     <div className="sidebar">
       <div><li className=" text-lg font-semibold text-center py-4.5 p-4 pl-5 border border-pink-300 bg-pink-300 text-gray200 list-none ">Menu<button
@@ -38,7 +41,7 @@ const MyPageHomeLayout = ({ topics }: MyPageHomeLayoutProps) => {
           {topics.map((topic, index) => (
             <Link to={""} key={index}>
               <li
-                className="jebaljombakyura py-2 hover:bg-gray-700 cursor-finger "
+                className={`jebaljombakyura py-2 hover:bg-gray-700 cursor-finger ${isSelected(topic)}`}
                 onClick={() => handleTopicClick(topic)}
               > 
               
