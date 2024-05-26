@@ -17,6 +17,7 @@
     "@react-oauth/google": "^0.12.1",
     "@tosspayments/payment-widget-sdk": "^0.10.2",
     "axios": "^1.6.8",
+    "browser-image-compression": "^2.0.2",
     "jwt-decode": "^4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

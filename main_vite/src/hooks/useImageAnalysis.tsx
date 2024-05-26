@@ -13,7 +13,7 @@ export const useImageAnalysis = (file: File | null, token: string) => {
     if (!file) return;
     if (!token) {
       setLoading(false);
-      setError("No token provided");
+      setError("로그인 정보가 없습니다. 로그인 후 시도해주세요.");
       return;
     }
 
@@ -63,7 +63,6 @@ export const useImageAnalysis = (file: File | null, token: string) => {
 
           eventSource.addEventListener("progress", (event: MessageEvent) => {
             setProgress((prev) => [...prev, event.data]);
-            console.log(event.data);
           });
 
           eventSource.addEventListener("error", (event: MessageEvent) => {
@@ -74,12 +73,10 @@ export const useImageAnalysis = (file: File | null, token: string) => {
 
           eventSource.addEventListener("complete", (event: MessageEvent) => {
             setStatus("Complete: " + event.data);
-            console.log(event.data);
           });
 
           eventSource.addEventListener("result", (event: MessageEvent) => {
             setAnalysisResult(event.data);
-            console.log(event.data);
             eventSource.close();
             setLoading(false);
           });

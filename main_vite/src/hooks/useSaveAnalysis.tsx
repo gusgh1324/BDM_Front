@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
+import imageCompression from "browser-image-compression";
 
 interface SaveAnalysisResponse {
   userId: number;
@@ -29,12 +30,22 @@ export const useSaveAnalysis = (): SaveAnalysisResult => {
       setError(null);
 
       try {
+        // 이미지 압축 옵션 설정
+        const options = {
+          maxSizeMB: 1,
+          maxWidthOrHeight: 1024,
+          useWebWorker: true,
+        };
+
+        // 이미지 압축
+        const compressedFile = await imageCompression(file, options);
+
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("file", compressedFile);
         formData.append("analysisResult", JSON.stringify(analysisResult));
 
         const response = await axios.post(
-          "http://localhost:8089/server/api/saveAnalysis/save", //Todo.경로 수정 필요
+          "http://localhost:8089/server/api/saveAnalysis/save", // Todo.경로 수정 필요
           formData,
           {
             headers: {
@@ -43,7 +54,7 @@ export const useSaveAnalysis = (): SaveAnalysisResult => {
             },
           }
         );
-        console.log("Save analysis response:", response.data);
+        console.log("분석 결과 저장됨");
         setData(response.data);
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {

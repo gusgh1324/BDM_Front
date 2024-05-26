@@ -104,7 +104,7 @@ const AfterAnalysis = ({
           </div>
         </div>
       )}
-      {error && <div className="error-message">에러: {error}</div>}
+      {error && <div className="loading-container loading-text">{error}</div>}
     </>
   );
 };
