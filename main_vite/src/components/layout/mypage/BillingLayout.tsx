@@ -9,21 +9,21 @@ const MyBillingLayout = () => {
       <div className="billing">
         <h3 className="font-bold">Thanks for being a Pro</h3>
         <ul>
-          <li>Level up your Claude usage</li>
-          <li>Access to Claude 3 Opus, our most intelligent model</li>
-          <li>Priority access druing high-traffic periods</li>
-          <li>Early access to newe features</li>
+          <li>프리미엄 플랜을 구독해 주셔서 감사드립니다.</li>
+          <li>ㅤ• 모든 콘텐츠 이용 가능</li>
+          <li>ㅤ• 우선 고객 지원</li>
+          <li>ㅤ• 추가 혜택 제공</li>
         </ul>
       </div>
       <div className="billing">
         <h3 className="font-bold">Payment</h3>
         <div className="flex items-center justify-between">
-          <span className="mr-auto">link Link by Stripe</span>
+          <span className="mr-auto">Linked by TossPayment</span>
           <Link
             to="/sub"
             className="px-4 py-2 font-bold text-white bg-pink-400 rounded hover:bg-pink-500"
           >
-            결제하기
+            상세정보
           </Link>
         </div>
       </div>
@@ -41,25 +41,25 @@ const MyBillingLayout = () => {
           <tbody>
             <tr>
               <td>2024년 5월 6일</td>
-              <td>US$22.00</td>
-              <td>Paid</td>
-              <td>View invoice</td>
-            </tr>
-            <tr>
-              <td>2024년 5월 6일</td>
-              <td>US$22.00</td>
+              <td>19,800 원</td>
               <td>Paid</td>
               <td>View invoice</td>
             </tr>
             <tr>
               <td>2024년 4월 6일</td>
-              <td>US$22.00</td>
+              <td>19,800 원</td>
               <td>Paid</td>
               <td>View invoice</td>
             </tr>
             <tr>
               <td>2024년 3월 6일</td>
-              <td>US$20.00</td>
+              <td>19,800 원</td>
+              <td>Paid</td>
+              <td>View invoice</td>
+            </tr>
+            <tr>
+              <td>2024년 2월 6일</td>
+              <td>19,800 원</td>
               <td>Paid</td>
               <td>View invoice</td>
             </tr>
@@ -74,7 +74,7 @@ const MyBillingLayout = () => {
             to=""
             className="px-4 py-2 font-bold text-white bg-pink-400 rounded hover:bg-pink-500"
           >
-            결제취소
+            구독 취소
           </Link>
         </div>
       </div>
