@@ -38,7 +38,12 @@ export const useSaveAnalysis = (): SaveAnalysisResult => {
         };
 
         // 이미지 압축
-        const compressedFile = await imageCompression(file, options);
+        const compressedBlob = await imageCompression(file, options);
+
+        // 압축된 파일의 이름과 확장자 설정
+        const compressedFile = new File([compressedBlob], file.name, {
+          type: file.type,
+        });
 
         const formData = new FormData();
         formData.append("file", compressedFile);

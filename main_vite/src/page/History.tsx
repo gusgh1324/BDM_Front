@@ -12,6 +12,8 @@ import {
 
 const History = () => {
   const location = useLocation();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [analysisResult, setAnalysisResult] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState(0);
   const [animate, setAnimate] = useState(false);
@@ -19,8 +21,12 @@ const History = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
+    const fileUrlParam = params.get("fileUrl");
     const analysisResultParam = params.get("analysisResult");
 
+    if (fileUrlParam) {
+      setFileUrl(fileUrlParam);
+    }
     if (analysisResultParam) {
       setAnalysisResult(decodeURIComponent(analysisResultParam));
     }
@@ -51,8 +57,7 @@ const History = () => {
             <label className="upload-label" htmlFor="file-upload">
               <div className="relative w-full h-full">
                 <img
-                  src="http://localhost:8089/server/api/saveAnalysis/9dca8e03-375c-4899-9496-15c7cb0c3600-background_test.jpg
-                  "
+                  src={fileUrl || ""}
                   alt="Uploaded"
                   className="uploaded-image"
                 />
