@@ -9,6 +9,7 @@ import {
   KakaotalkIcon,
   LinkShareIcon,
 } from "../components/icon/SocialIcons";
+import axios from "axios";
 
 const History = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const History = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [animate, setAnimate] = useState(false);
   const [newTextBoxState, setNewTextBoxState] = useState(false);
+  const [shortUrl, setShortUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -41,8 +43,68 @@ const History = () => {
     }
   }, [analysisResult, animate, location.search]);
 
+  const shortenUrl = async (): Promise<string | null> => {
+    try {
+      const response = await axios.post(
+        "https://api.lrl.kr/v5/url/short",
+        {
+          key: "Z9cFP2r3wUwkiwkjsAf4PeA9yWEGpUuU",
+          url: window.location.href,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.data.result) {
+        setShortUrl(response.data.result.url); // 성공 시 단축된 URL 설정
+        return response.data.result.url;
+      } else {
+        console.error("Error shortening URL:", response.data.message);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error shortening URL:", error);
+      return null;
+    }
+  };
+
   const handleTabClick = (index: number) => {
     setActiveTab(index);
+  };
+
+  const handleLinkShareClick = async () => {
+    if (!shortUrl) {
+      const url = await shortenUrl();
+      if (url) {
+        navigator.clipboard.writeText(url);
+        alert("URL이 클립보드에 복사되었습니다.");
+      }
+    } else {
+      navigator.clipboard.writeText(shortUrl);
+      alert("URL이 클립보드에 복사되었습니다.");
+    }
+  };
+
+  const handleSocialShareClick = async (socialUrlTemplate: string) => {
+    if (!shortUrl) {
+      const url = await shortenUrl();
+      if (url) {
+        window.open(
+          socialUrlTemplate.replace("{url}", encodeURIComponent(url)),
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
+    } else {
+      window.open(
+        socialUrlTemplate.replace("{url}", encodeURIComponent(shortUrl)),
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
   };
 
   return (
@@ -115,16 +177,37 @@ const History = () => {
                 </div>
               </div>
               <div className="result-url flex items-center">
-                <div className="social_icon">
+                <div className="social_icon" onClick={handleLinkShareClick}>
                   <LinkShareIcon className="w-12 h-12" src={""} alt={""} />
                 </div>
-                <div className="social_icon">
+                <div
+                  className="social_icon"
+                  onClick={() =>
+                    handleSocialShareClick(
+                      "https://www.facebook.com/sharer/sharer.php?u={url}"
+                    )
+                  }
+                >
                   <FacebookIcon className="w-12 h-12" src={""} alt={""} />
                 </div>
-                <div className="social_icon">
+                <div
+                  className="social_icon"
+                  onClick={() =>
+                    handleSocialShareClick(
+                      "https://story.kakao.com/share?url={url}"
+                    )
+                  }
+                >
                   <KakaotalkIcon className="w-12 h-12" src={""} alt={""} />
                 </div>
-                <div className="social_icon">
+                <div
+                  className="social_icon"
+                  onClick={() =>
+                    handleSocialShareClick(
+                      "https://twitter.com/intent/tweet?url={url}"
+                    )
+                  }
+                >
                   <TwitterIcon className="w-12 h-12" src={""} alt={""} />
                 </div>
               </div>
