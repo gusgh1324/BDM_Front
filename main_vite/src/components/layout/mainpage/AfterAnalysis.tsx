@@ -7,7 +7,7 @@ import {
   LinkShareIcon,
 } from "../../icon/SocialIcons";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface SaveAnalysisResponse {
   fileUrl: string;
@@ -31,16 +31,71 @@ const AfterAnalysis = ({
 }: AfterAnalysisProps) => {
   const { uploadedImage } = useImageStore();
   const [activeTab, setActiveTab] = useState(0);
-  const navigate = useNavigate();
+  const [shortUrl, setShortUrl] = useState<string | null>(null);
+
+  const shortenUrl = async (): Promise<string | null> => {
+    if (savedData) {
+      try {
+        const response = await axios.post(
+          "https://api.lrl.kr/v5/url/short",
+          {
+            key: "Z9cFP2r3wUwkiwkjsAf4PeA9yWEGpUuU",
+            url: `${window.location.origin}/history?fileUrl=${encodeURIComponent(savedData.fileUrl)}&analysisResult=${encodeURIComponent(savedData.analysisResult)}`,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.data.result) {
+          setShortUrl(response.data.result.url);
+          return response.data.result.url;
+        } else {
+          console.error("Error shortening URL:", response.data.message);
+          return null;
+        }
+      } catch (error) {
+        console.error("Error shortening URL:", error);
+        return null;
+      }
+    }
+    return null;
+  };
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
   };
 
-  const handleLinkShareClick = () => {
-    if (savedData) {
-      navigate(
-        `/history?fileUrl=${encodeURIComponent(savedData.fileUrl)}&analysisResult=${encodeURIComponent(savedData.analysisResult)}`
+  const handleLinkShareClick = async () => {
+    if (!shortUrl) {
+      const url = await shortenUrl();
+      if (url) {
+        navigator.clipboard.writeText(url);
+        alert("URL이 클립보드에 복사되었습니다.");
+      }
+    } else {
+      navigator.clipboard.writeText(shortUrl);
+      alert("URL이 클립보드에 복사되었습니다.");
+    }
+  };
+
+  const handleSocialShareClick = async (socialUrlTemplate: string) => {
+    if (!shortUrl) {
+      const url = await shortenUrl();
+      if (url) {
+        window.open(
+          socialUrlTemplate.replace("{url}", encodeURIComponent(url)),
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
+    } else {
+      window.open(
+        socialUrlTemplate.replace("{url}", encodeURIComponent(shortUrl)),
+        "_blank",
+        "noopener,noreferrer"
       );
     }
   };
@@ -84,21 +139,37 @@ const AfterAnalysis = ({
             </div>
           </div>
           <div className="result-url flex items-center">
-            <div className="social_icon">
-              <LinkShareIcon
-                className="w-12 h-12"
-                onClick={handleLinkShareClick}
-                src={""}
-                alt={""}
-              />
+            <div className="social_icon" onClick={handleLinkShareClick}>
+              <LinkShareIcon className="w-12 h-12" src={""} alt={""} />
             </div>
-            <div className="social_icon">
+            <div
+              className="social_icon"
+              onClick={() =>
+                handleSocialShareClick(
+                  "https://www.facebook.com/sharer/sharer.php?u={url}"
+                )
+              }
+            >
               <FacebookIcon className="w-12 h-12" src={""} alt={""} />
             </div>
-            <div className="social_icon">
+            <div
+              className="social_icon"
+              onClick={() =>
+                handleSocialShareClick(
+                  "https://story.kakao.com/share?url={url}"
+                )
+              }
+            >
               <KakaotalkIcon className="w-12 h-12" src={""} alt={""} />
             </div>
-            <div className="social_icon">
+            <div
+              className="social_icon"
+              onClick={() =>
+                handleSocialShareClick(
+                  "https://twitter.com/intent/tweet?url={url}"
+                )
+              }
+            >
               <TwitterIcon className="w-12 h-12" src={""} alt={""} />
             </div>
           </div>
